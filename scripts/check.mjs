@@ -267,7 +267,7 @@ for (const [fg, bg, min, what] of pairs) {
 }
 
 // 10. Structured data -----------------------------------------------------------------------
-const required = { Organization: ['name', 'url'], Person: ['name'], Service: ['name', 'provider'], WebSite: ['name', 'url'], WebPage: ['url', 'name'] };
+const required = { Organization: ['name', 'url'], Person: ['name'], Service: ['name', 'provider'], WebSite: ['name', 'url'], WebPage: ['url', 'name'], Article: ['headline', 'author', 'url'] };
 for (const [file, html] of pages) {
   const blocks = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
   if (file.endsWith('404.html')) continue;

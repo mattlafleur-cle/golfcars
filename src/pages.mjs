@@ -57,24 +57,27 @@ function extrasFor(block, site, copy) {
   return extras.join('');
 }
 
-// Scoreboard panel in the Home hero: the four disciplines as a leaderboard.
+// Leaderboard panel in the Home hero: the four tracks of the curriculum.
 function board(copy) {
   const rows = copy.disciplines
-    .map((d) => `<li><a href="/what-we-teach/#${esc(d.id)}"><span class="board-num">${esc(d.number)}</span><span class="board-name">${esc(d.name)}</span></a></li>`)
+    .map((d) => `<li><a href="/curriculum/#${esc(d.id)}"><span class="board-num">${esc(d.number)}</span><span class="board-name">${esc(d.name)}</span></a></li>`)
     .join('');
-  return `<nav class="board" aria-label="The four disciplines">
-  <p class="board-title"><span>The four disciplines</span><span class="board-flag" aria-hidden="true"></span></p>
+  return `<nav class="board" aria-label="The four tracks of the curriculum">
+  <p class="board-title"><span>The curriculum: four tracks</span><span class="board-flag" aria-hidden="true"></span></p>
   <ol>${rows}</ol>
-  <p class="board-foot">For dealers, builders, service shops, and golf facility fleets</p>
+  <p class="board-foot">${copy.disciplines.reduce((n, d) => n + d.modules.length, 0)} modules for dealers, builders, service shops, and golf facility fleets</p>
 </nav>`;
 }
+
+const trackOf = (copy, id) => copy.disciplines.find((d) => d.id === id);
+const guideOf = (copy, slug) => copy.guides.find((g) => g.slug === slug);
 
 const renderers = {
   hero(block, { site, copy }) {
     const jump = block.jump
       ? `<nav class="jump" aria-label="On this page"><ul>${block.jump.map((j) => `<li><a href="${esc(j.href)}">${esc(j.label)}</a></li>`).join('')}</ul></nav>`
       : '';
-    return `<section class="hero${block.board ? ' hero-with-board' : ''}" aria-labelledby="page-title">
+    return `<section class="hero${block.board ? ' hero-with-board' : ''}${block.compact ? ' hero-compact' : ''}" aria-labelledby="page-title">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">${esc(block.eyebrow)}</p>
@@ -106,41 +109,122 @@ const renderers = {
       .map(
         (d) => `<li class="pillar">
   <p class="pillar-num" aria-hidden="true">${esc(d.number)}</p>
-  <h3>${esc(d.name)}</h3>
+  <h3>${esc(d.name)} <span class="visually-hidden">track</span></h3>
   <p class="pillar-promise">${esc(d.promise)}</p>
-  <ul class="pillar-list">${d.work.slice(0, 4).map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
-  <p class="card-link"><a class="text-link" href="/what-we-teach/#${esc(d.id)}">More on ${esc(d.name.toLowerCase())}</a></p>
+  <p class="pillar-count">${d.modules.length} modules</p>
+  <ul class="pillar-list">${d.modules.map((m) => `<li>${esc(m.title)}</li>`).join('')}</ul>
+  <p class="card-link"><a class="text-link" href="/curriculum/#${esc(d.id)}">Explore the ${esc(d.name.toLowerCase())} track</a></p>
 </li>`,
       )
       .join('');
     return `${sectionOpen(block)}<div class="wrap">${sectionHead(block)}<ol class="pillars">${cards}</ol></div></section>`;
   },
 
-  disciplines(block, { copy }) {
+  tracks(block, { copy }) {
     return copy.disciplines
-      .map(
-        (d, n) => `<section class="section discipline${n % 2 ? ' section-soft' : ''}" id="${esc(d.id)}" aria-labelledby="${esc(d.id)}-title">
-  <div class="wrap split">
-    <div class="section-head">
+      .map((d, n) => {
+        const guide = guideOf(copy, d.guide);
+        const modules = d.modules
+          .map((m, i) => `<li class="module"><p class="module-code">${esc(d.number)}.${i + 1}</p><h3>${esc(m.title)}</h3><p>${esc(m.body)}</p></li>`)
+          .join('');
+        return `<section class="section track${n % 2 ? ' section-soft' : ''}" id="${esc(d.id)}" aria-labelledby="${esc(d.id)}-title">
+  <div class="wrap">
+    <div class="track-head">
       <p class="discipline-num" aria-hidden="true">${esc(d.number)}</p>
-      <h2 id="${esc(d.id)}-title">${esc(d.name)}</h2>
-      <p class="pillar-promise">${esc(d.promise)}</p>
-      <p class="section-intro">${esc(d.intro)}</p>
-    </div>
-    <div class="discipline-lists">
       <div>
-        <h3 class="list-heading">What we work on</h3>
-        <ul class="ticks">${d.work.map((w) => `<li>${esc(w)}</li>`).join('')}</ul>
+        <p class="eyebrow">Track ${esc(String(n + 1))} of ${copy.disciplines.length}</p>
+        <h2 id="${esc(d.id)}-title">${esc(d.name)}</h2>
+        <p class="pillar-promise">${esc(d.promise)}</p>
+        <p class="section-intro">${esc(d.intro)}</p>
       </div>
+    </div>
+    <ol class="modules">${modules}</ol>
+    <div class="track-foot">
       <div class="signs">
-        <h3 class="list-heading">You will recognize it when</h3>
-        <ul class="signs-list">${d.signs.map((s) => `<li>${esc(s)}</li>`).join('')}</ul>
+        <p class="list-heading">You will recognize the need when</p>
+        <ul class="signs-list">${d.signs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
       </div>
+      ${guide ? `<a class="guide-card" href="/guides/${esc(guide.slug)}/"><span class="guide-kicker">Free field guide</span><span class="guide-title">${esc(guide.title)}</span><span class="guide-more">Read the guide</span></a>` : ''}
     </div>
   </div>
-</section>`,
-      )
+</section>`;
+      })
       .join('\n');
+  },
+
+  steps(block) {
+    const items = block.items
+      .map((i) => `<li class="step"><p class="step-num" aria-hidden="true">${esc(i.number)}</p><h3>${esc(i.title)}</h3><p>${esc(i.body)}</p><p class="card-link"><a class="text-link" href="${esc(i.href)}">${esc(i.linkLabel)}</a></p></li>`)
+      .join('');
+    return `${sectionOpen(block)}<div class="wrap">${sectionHead(block)}<ol class="steps">${items}</ol></div></section>`;
+  },
+
+  paths(block, { copy }) {
+    const list = block.limit ? copy.paths.slice(0, block.limit) : copy.paths;
+    const cards = list
+      .map((p) => {
+        const steps = p.steps
+          .map(([track, title]) => {
+            const d = trackOf(copy, track);
+            return `<li><a href="/curriculum/#${esc(track)}"><span class="path-track">${esc(d.name)}</span><span class="path-module">${esc(title)}</span></a></li>`;
+          })
+          .join('');
+        return `<li class="card path" id="path-${esc(p.id)}"><h3>${esc(p.role)}</h3><p>${esc(p.summary)}</p><ol class="path-steps">${steps}</ol></li>`;
+      })
+      .join('');
+    const link = block.link ? `<p class="block-action"><a class="text-link" href="${esc(block.link.href)}">${esc(block.link.label)}</a></p>` : '';
+    return `${sectionOpen(block)}<div class="wrap">${sectionHead(block)}<ul class="grid grid-3 paths">${cards}</ul>${link}</div></section>`;
+  },
+
+  guideList(block, { copy }) {
+    const cards = copy.guides
+      .map((g) => {
+        const d = trackOf(copy, g.track);
+        return `<li class="card guide-item"><p class="guide-kicker">${esc(d.number)} ${esc(d.name)} track</p><h3><a href="/guides/${esc(g.slug)}/">${esc(g.title)}</a></h3><p>${esc(g.summary)}</p><p class="card-link"><a class="text-link" href="/guides/${esc(g.slug)}/" aria-hidden="true" tabindex="-1">Read the guide</a></p></li>`;
+      })
+      .join('');
+    const more = block.full ? '' : `<p class="block-action"><a class="text-link" href="/guides/">All field guides</a></p>`;
+    return `${sectionOpen(block)}<div class="wrap">${sectionHead(block)}<ul class="grid grid-${block.full ? 2 : 4} guides">${cards}</ul>${more}</div></section>`;
+  },
+
+  article(block, { copy }) {
+    const g = block.guide;
+    const d = trackOf(copy, g.track);
+    const body = g.sections
+      .map((sec) => {
+        const paras = (sec.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join('');
+        const list = sec.list ? `<ul class="ticks">${sec.list.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
+        return `<h2>${esc(sec.heading)}</h2>${paras}${list}`;
+      })
+      .join('');
+    const others = copy.guides.filter((x) => x.slug !== g.slug);
+    return `<section class="section article-section" aria-label="Guide">
+  <div class="wrap article-grid">
+    <article class="article">${body}</article>
+    <aside class="article-aside">
+      <div class="takeaways">
+        <h2>Key takeaways</h2>
+        <ul class="ticks">${g.takeaways.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+      </div>
+      <div class="aside-track">
+        <p class="guide-kicker">From the ${esc(d.name)} track</p>
+        <p>${esc(d.promise)}</p>
+        <p><a class="text-link" href="/curriculum/#${esc(d.id)}">See all ${d.modules.length} modules</a></p>
+      </div>
+      <div class="aside-more">
+        <p class="guide-kicker">More field guides</p>
+        <ul>${others.map((o) => `<li><a href="/guides/${esc(o.slug)}/">${esc(o.title)}</a></li>`).join('')}</ul>
+      </div>
+    </aside>
+  </div>
+</section>`;
+  },
+
+  program(block, { site, copy }) {
+    const paras = (block.paragraphs || []).map((p) => `<p>${esc(p)}</p>`).join('');
+    const list = block.list ? `<h3 class="list-heading">${esc(block.listHeading)}</h3><ul class="ticks">${block.list.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : '';
+    const links = (block.links || []).map((l) => `<p class="block-action">${linkTag(l.href, l.label, 'text-link')}</p>`).join('');
+    return `${sectionOpen(block, ' program')}<div class="wrap split">${sectionHead(block)}<div class="prose">${paras}${list}${links}${extrasFor(block, site, copy)}</div></div></section>`;
   },
 
   questions(block) {
@@ -167,7 +251,8 @@ const renderers = {
             return `<fieldset class="sc-item"><legend><span class="sc-n">${n}.</span> ${esc(statement)}</legend><div class="choices">${choices}</div></fieldset>`;
           })
           .join('');
-        return `<section class="sc-area" aria-labelledby="sc-${esc(area.id)}-title" data-area="${esc(area.id)}" data-name="${esc(d.name)}" data-next="${esc(area.nextStep)}">
+        const guide = guideOf(copy, d.guide);
+        return `<section class="sc-area" aria-labelledby="sc-${esc(area.id)}-title" data-area="${esc(area.id)}" data-name="${esc(d.name)}" data-next="${esc(area.nextStep)}" data-track-href="/curriculum/#${esc(d.id)}" data-guide-href="/guides/${esc(guide.slug)}/" data-guide-title="${esc(guide.title)}">
   <h2 id="sc-${esc(area.id)}-title"><span class="discipline-num" aria-hidden="true">${esc(d.number)}</span> ${esc(d.name)}</h2>
   ${items}
 </section>`;
@@ -186,6 +271,7 @@ const renderers = {
         <p data-band-body></p>
         <h3>Where to start</h3>
         <p data-focus></p>
+        <ul class="sc-links"><li><a data-track-link href="/curriculum/">Explore the curriculum</a></li><li><a data-guide-link href="/guides/">Read the field guides</a></li></ul>
         <div class="actions"><a class="button button-primary" href="/contact/">Talk through your results</a><button class="button button-secondary" type="button" data-reset>Start over</button></div>
       </div>
       <noscript><p class="small">Scoring needs JavaScript. You can still use the statements as a checklist: count 2 points for Consistently, 1 for Sometimes, and 0 for Not yet. Each discipline has 8 points available.</p></noscript>
@@ -272,7 +358,7 @@ const renderers = {
       <p class="section-intro">${esc(a.body)}</p>
     </div>
     <div>
-      <h3 class="list-heading">Where we focus</h3>
+      <h3 class="list-heading">What the curriculum covers</h3>
       <ul class="ticks">${a.focus.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
     </div>
   </div>
@@ -393,6 +479,18 @@ export function renderPages(site, copy, assets) {
       })
       .join('\n');
     const jsonLd = page.notFound ? null : structuredData(site, copy, page);
+    const guide = page.blocks.find((b) => b.type === 'article')?.guide;
+    if (jsonLd && guide) {
+      jsonLd['@graph'].push({
+        '@type': 'Article',
+        headline: guide.title,
+        description: guide.description,
+        url: absoluteUrl(site, page.path),
+        author: { '@id': `${site.canonicalUrl.replace(/\/$/, '')}/#organization` },
+        publisher: { '@id': `${site.canonicalUrl.replace(/\/$/, '')}/#organization` },
+        isPartOf: { '@id': `${site.canonicalUrl.replace(/\/$/, '')}/#website` },
+      });
+    }
     const html = pageShell({ site, copy, page, body, jsonLd, assets });
     const out = page.notFound ? '404.html' : page.path === '/' ? 'index.html' : `${page.path.replace(/^\//, '')}index.html`;
     return { page, out, html };

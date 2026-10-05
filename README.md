@@ -38,7 +38,9 @@ The first time you run the browser test on a new computer, also run `npx playwri
 - **Change the booking link or emails:** edit `booking` and `contacts` in `site.config.mjs`. Set `booking.isTemporary: false` once a Maple Creek Carts calendar exists so the Contact page drops the note about Maple Creek Advisors.
 - **Add an event:** add `{ title, date: 'YYYY-MM-DD', format, location, url }` to `events`. An "Upcoming dates" list appears in the formats section of What we teach. Past dates drop off at the next build.
 - **Announce a show:** in `shows`, set `attending: true` for the PGA Show, the Golf Business Conference, or both. A "Meet us at the shows" section appears on Home and Contact with the dates, venue, and booking button. Recheck the dates first.
-- **Edit the four disciplines or the scorecard:** both live in `src/content.mjs` (`disciplines` and `scorecard`). The scorecard runs entirely in the visitor's browser; nothing is sent or stored.
+- **Edit the curriculum:** the four tracks and their six modules each are `disciplines` in `src/content.mjs`. Learning paths are `paths`; each step names a track id and a module title.
+- **Add a field guide:** add an entry to `guides` in `src/content.mjs` with a `slug`, `track`, `title`, `description`, `summary`, `sections`, and `takeaways`. The build creates `/guides/<slug>/`, adds it to the guides list, the sitemap, and `llms.txt`. To feature it on a track, set that track's `guide` to the slug.
+- **Edit the scorecard:** `scorecard` in `src/content.mjs`. Results link to the weakest track and its field guide. It runs entirely in the visitor's browser; nothing is sent or stored.
 - **Add a learning platform:** set `learningPlatform: { name, url }`. A link appears in the Education section.
 - **Add golf car industry experience:** set a founder's `industryExperience` to a plain sentence or two. It appears in their bio and on About.
 - **Turn on search indexing:** set `allowIndexing: true`.

@@ -4,7 +4,7 @@
   const toggle = document.querySelector('.menu-toggle');
   const nav = document.getElementById('site-nav');
   if (!toggle || !nav) return;
-  const mobile = window.matchMedia('(max-width: 1100px)');
+  const mobile = window.matchMedia('(max-width: 1240px)');
 
   const setOpen = (open, { returnFocus = false } = {}) => {
     toggle.setAttribute('aria-expanded', String(open));
@@ -65,7 +65,7 @@
       const bar = document.querySelector(`[data-bar="${area.dataset.area}"]`);
       bar.querySelector('.sc-bar-fill').style.width = `${done === sets.length ? pct : 0}%`;
       bar.querySelector('.sc-bar-value').textContent = done === sets.length ? `${pct}%` : `${done} of ${sets.length}`;
-      return { name: area.dataset.name, next: area.dataset.next, pct };
+      return { name: area.dataset.name, next: area.dataset.next, pct, track: area.dataset.trackHref, guide: area.dataset.guideHref, guideTitle: area.dataset.guideTitle };
     });
 
     if (answered < total) {
@@ -80,6 +80,12 @@
     summary.querySelector('[data-band]').textContent = band.label;
     summary.querySelector('[data-band-body]').textContent = band.body;
     summary.querySelector('[data-focus]').textContent = `${lowest.name} scored lowest at ${lowest.pct}%. ${lowest.next}`;
+    const trackLink = summary.querySelector('[data-track-link]');
+    trackLink.href = lowest.track;
+    trackLink.textContent = `Start with the ${lowest.name} track`;
+    const guideLink = summary.querySelector('[data-guide-link]');
+    guideLink.href = lowest.guide;
+    guideLink.textContent = `Read: ${lowest.guideTitle}`;
     summary.hidden = false;
   };
 

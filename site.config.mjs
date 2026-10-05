@@ -12,7 +12,7 @@ export default {
   domain: 'maplecreekcarts.com',
   canonicalUrl: 'https://maplecreekcarts.com',
 
-  tagline: 'Business education and leadership coaching for the golf cart industry: sales, service, operations, and leadership.',
+  tagline: 'The education and business-building platform for the golf cart industry: sales, service, operations, and leadership.',
 
   // Shown in every page footer. Required wording; do not shorten.
   footerDisclosure:
@@ -27,7 +27,7 @@ export default {
   analytics: null,
 
   // Link preview image in src/assets/. Regenerate with `npm run og-image` after changing siteName or tagline.
-  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: sales, service, operations, and leadership for golf cart businesses' },
+  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: the education and business-building platform for the golf cart industry' },
 
   // The one primary action. Every page carries a "Schedule a conversation" button that goes to booking.url.
   // LAUNCH GATE: this is Matt's Maple Creek Advisors scheduling link, used until a Maple Creek Carts link exists.
@@ -105,10 +105,10 @@ export default {
   // Status badges show only while showOfferingStatus is true. Matt chose on 2026-10-05 not to label any offering as
   // planned, so badges are off. `live` is kept for the day badges or purchase links are wanted again.
   offerings: [
-    { id: 'coaching', name: 'Leadership coaching', live: false, href: '/coaching/' },
-    { id: 'training', name: 'Team training and workshops', live: false, href: '/what-we-teach/#formats' },
-    { id: 'education', name: 'Courses, webinars, and resources', live: false, href: '/what-we-teach/#formats' },
-    { id: 'peer', name: 'Peer groups for leaders', live: false, href: '/what-we-teach/#peer-learning' },
+    { id: 'coaching', name: 'Leadership coaching', live: false, href: '/programs/#coaching' },
+    { id: 'training', name: 'Team training and workshops', live: false, href: '/programs/#team-training' },
+    { id: 'education', name: 'Courses, webinars, and resources', live: false, href: '/programs/#courses' },
+    { id: 'peer', name: 'Peer groups for leaders', live: false, href: '/programs/#peer-groups' },
     // Delivered through Maple Creek Advisors. The outbound link works today; the label still follows `live`.
     { id: 'advisory', name: 'Advisory and fractional CFO', live: false, href: 'https://maplecreekadvisors.com/carts/', provider: 'advisors' },
   ],

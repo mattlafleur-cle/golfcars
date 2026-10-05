@@ -82,3 +82,19 @@ Matt's newer instructions: the type looked too much like other generated sites; 
 ## 2026-10-05: Hero rewrite
 
 35. **The hero speaks to growing an existing business.** At Matt's direction, the home page now opens with "Grow the business you've already built." The lead acknowledges what the visitor already has (customers, a team, a reputation in their market) and positions Maple Creek Carts as building on it. The second button reads "See where you stand" and goes to the scorecard. The link preview image uses the same headline. "Sell more. Service better. Run tighter. Lead stronger." is retired from the hero.
+
+## 2026-10-05: A platform, not a practice
+
+Matt's instruction: the site should feel more like an educational and business-building platform for the golf cart industry.
+
+36. **Curriculum with tracks and modules.** The four focus areas are now the four tracks of one curriculum (Sales, Service, Business operations, Leadership), each with six named modules, numbered 01.1 to 04.6. The `/what-we-teach/` page became `/curriculum/`. Module titles and descriptions describe what the curriculum covers; they are drafts for Josh and Matt to confirm, because the site now presents them as the curriculum.
+
+37. **Learning paths by role.** Five suggested routes through the modules: dealer principal or owner, general manager, sales manager, service manager, and golf facility fleet manager. They show visitors where to start without a sales conversation.
+
+38. **Programs page replaces Coaching.** `/coaching/` became `/programs/`, which covers all five ways to learn: leadership coaching, team training and workshops, courses and resources, peer groups, and advisory. Team training lists module combinations built from the curriculum. The old `/coaching/` and `/what-we-teach/` URLs now show the helpful 404 page; they were live for about an hour and never indexed, so no redirects were added.
+
+39. **Free field guides.** One practical guide per track, at `/guides/<slug>/`, so the platform teaches something on the first visit: a one-page sales process, billed hours against paid hours, department financial statements, and a decision inventory for owners. They contain no statistics or benchmarks; the one worked example is labeled as an illustration. They carry Article structured data with Maple Creek Carts, not a named person, as author, until Josh and Matt review and choose bylines.
+
+40. **Assess, learn, build.** Home now explains the platform in three steps: the scorecard (assess), the curriculum and guides (learn), and the programs (build). Scorecard results link to the weakest track and its field guide.
+
+41. **Navigation.** Curriculum, Programs, Guides, Scorecard, Who we serve, About, Contact. The phone menu now appears below 1240 pixels wide so the desktop header stays on one line.

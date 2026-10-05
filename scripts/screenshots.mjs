@@ -66,7 +66,7 @@ try {
     }
 
     // Skip link: first Tab reaches it, Enter moves focus to main content.
-    await page.goto(`${origin}/coaching/`, { waitUntil: 'networkidle' });
+    await page.goto(`${origin}/curriculum/`, { waitUntil: 'networkidle' });
     await page.keyboard.press('Tab');
     let a = await active(page);
     if (!a.cls.includes('skip-link')) fail(`${vp.name}: first Tab landed on "${a.text}", expected the skip link`);
@@ -93,6 +93,8 @@ try {
     const focus = await page.textContent('[data-focus]');
     const lastArea = copy.disciplines[copy.disciplines.length - 1].name;
     if (!focus.startsWith(`${lastArea} scored lowest at 0%`)) fail(`${vp.name}: scorecard focus reads "${focus}"`);
+    const trackHref = await page.getAttribute('[data-track-link]', 'href');
+    if (trackHref !== `/curriculum/#${copy.disciplines[copy.disciplines.length - 1].id}`) fail(`${vp.name}: scorecard track link is ${trackHref}`);
     const band = await page.textContent('[data-band]');
     if (band !== copy.scorecard.bands[copy.scorecard.bands.length - 1].label) fail(`${vp.name}: scorecard band reads "${band}" for a 75% score`);
     await page.screenshot({ path: path.join(root, 'screenshots', `scorecard-done-${vp.name}.png`), fullPage: true });

@@ -36,5 +36,7 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 ## Worth confirming
 
 - [ ] **BUILD link.** The site links to buildowners.com. Josh should confirm that is the destination he wants.
-- [ ] **The four disciplines, eight questions, and scorecard.** Read them as a dealer principal would. Edit anything that does not match how you teach. All of it is in `src/content.mjs`.
+- [ ] **The curriculum.** The site now lists 24 named modules across four tracks, plus five learning paths. Confirm each is something you will teach, or edit it. `disciplines` and `paths` in `src/content.mjs`.
+- [ ] **The four field guides.** Read each one as a dealer principal would, and decide whether to add your names as authors. `guides` in `src/content.mjs`.
+- [ ] **The eight questions and the scorecard.** Read them as a dealer principal would. Edit anything that does not match how you teach.
 - [ ] **After launch:** share a link in a message and check that the preview image appears, and submit the sitemap in Google Search Console once indexing is on.

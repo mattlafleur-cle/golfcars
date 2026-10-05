@@ -48,13 +48,21 @@ const llms = `# ${site.siteName}
 
 ${copy.footerBlurb} It serves owners, general managers, and leaders of golf car dealers and dealer groups; manufacturers, builders, and upfitters; service and repair shops; parts and accessory businesses; rental, fleet, and resort operators; and golf course and community fleet managers.
 
-## What we teach
+## The curriculum: four tracks
 
 ${copy.disciplines.map((d) => `- ${d.name}: ${d.promise}`).join('\n')}
 
+Each track has six modules:
+
+${copy.disciplines.map((d) => `- ${d.name}: ${d.modules.map((m) => m.title).join('; ')}`).join('\n')}
+
+## Field guides
+
+${copy.guides.map((g) => `- [${g.title}](${base}/guides/${g.slug}/): ${g.summary}`).join('\n')}
+
 A free, browser-only dealer scorecard is at ${base}/scorecard/.
 
-## Ways to work with us
+## Programs
 
 ${site.offerings.map((o) => `- ${o.name}${site.showOfferingStatus ? ` (${status(o)})` : ''}: ${copy.offeringCopy[o.id].body}`).join('\n')}
 

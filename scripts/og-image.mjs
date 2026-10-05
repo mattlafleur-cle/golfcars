@@ -36,10 +36,10 @@ p.tag { font-size: 24px; line-height: 1.4; color: #c6d3c9; margin: 0; }
 <div class="text">
   <p class="brand">${markSvg(52)}<span>${esc(site.siteName)}</span></p>
   <h1><span>Grow the</span> <span>business you’ve</span> <span>already built.</span></h1>
-  <p class="tag">Business education and leadership coaching for the golf cart industry</p>
+  <p class="tag">The education and business-building platform for the golf cart industry</p>
   <p class="domain">${esc(site.domain)}</p>
 </div>
-<div class="board"><p>The four disciplines</p><ol>${rows}</ol></div>
+<div class="board"><p>The curriculum: four tracks</p><ol>${rows}</ol></div>
 </body></html>`;
 
 const playwright = loadPlaywright();
