@@ -45,7 +45,7 @@ function header(site, copy, currentPath) {
   return `<a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="wordmark" href="/">${markSvg(34)}<span>${esc(site.siteName)}</span></a>
+    <a class="wordmark" href="/">${markSvg(34)}<span class="wordmark-text"><span class="wordmark-name">${esc(site.siteName)}</span>${site.parent ? `<span class="wordmark-sub">${esc(site.endorsement)}</span>` : ''}</span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span></button>
     <nav id="site-nav" class="site-nav" aria-label="Main">
       <ul>${items}</ul>
@@ -53,6 +53,14 @@ function header(site, copy, currentPath) {
     </nav>
   </div>
 </header>`;
+}
+
+// "A Maple Creek Advisors company", with the parent's name linked to its site.
+function endorsementLine(site) {
+  if (!site.parent) return '';
+  const parent = site.links[site.parent];
+  const [before, after = ''] = site.endorsement.split(parent.name);
+  return `<p class="footer-endorsement">${esc(before)}${linkTag(parent.url, parent.name)}${esc(after)}</p>`;
 }
 
 function footer(site, copy) {
@@ -65,7 +73,8 @@ function footer(site, copy) {
   return `<footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <a class="wordmark wordmark-light" href="/">${markSvg(30)}<span>${esc(site.siteName)}</span></a>
+      <a class="wordmark wordmark-light" href="/">${markSvg(30)}<span class="wordmark-name">${esc(site.siteName)}</span></a>
+      ${endorsementLine(site)}
       <p>${esc(copy.footerBlurb)}</p>
     </div>
     <nav class="footer-col" aria-label="Footer">

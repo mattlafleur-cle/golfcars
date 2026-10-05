@@ -98,3 +98,11 @@ Matt's instruction: the site should feel more like an educational and business-b
 40. **Assess, learn, build.** Home now explains the platform in three steps: the scorecard (assess), the curriculum and guides (learn), and the programs (build). Scorecard results link to the weakest track and its field guide.
 
 41. **Navigation.** Curriculum, Programs, Guides, Scorecard, Who we serve, About, Contact. The phone menu now appears below 1240 pixels wide so the desktop header stays on one line.
+
+## 2026-10-05: Brand architecture
+
+42. **Maple Creek Carts stays the platform brand, endorsed by Maple Creek Advisors.** Matt asked whether to rebrand as Maple Creek Advisors or create a new name. Recommendation accepted in part: keep "Maple Creek Carts" (it matches the domain and signals the industry), and show Maple Creek Advisors as the company behind it. Rebranding the site as Maple Creek Advisors would split one name across two domains and pull the positioning back toward a consulting firm. A new name was judged not worth the cost before the January shows; revisit if show visitors repeatedly assume the company sells carts, or if an industry partner takes equity.
+
+43. **Changes made at Matt's direction.** The header wordmark carries "A Maple Creek Advisors company"; the footer repeats it with a link to maplecreekadvisors.com; the copyright line reads Maple Creek Advisors (`legalName`); and the Organization structured data lists Maple Creek Advisors as `parentOrganization`. All three are driven by `parent`, `endorsement`, and `legalName` in `site.config.mjs`.
+
+44. **The Maple Creek Advisors `/carts/` page is unchanged.** Matt chose not to redirect or repoint it to maplecreekcarts.com for now. Both sites therefore describe golf cart work; keep their claims consistent.

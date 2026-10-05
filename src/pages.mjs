@@ -449,6 +449,7 @@ export function structuredData(site, copy, page) {
         description: site.tagline,
         logo: `${base}/assets/${site.ogImage.src}`,
         founder: persons.map((p) => ({ '@id': p['@id'] })),
+        ...(site.parent ? { parentOrganization: { '@type': 'Organization', name: site.links[site.parent].name, url: site.links[site.parent].url } } : {}),
         knowsAbout: ['Golf cart dealer training', 'Golf car business coaching', 'Golf cart dealership leadership', 'Golf cart sales process', 'Service department productivity', 'Department profitability', 'Floor plan inventory management', 'Golf course cart fleet management'],
         ...(areaServed ? { areaServed } : {}),
       },

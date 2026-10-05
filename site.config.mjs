@@ -5,8 +5,14 @@
 export default {
   siteName: 'Maple Creek Carts',
 
-  // LAUNCH GATE: legal or registered name used in the copyright line. Until confirmed, the display name is used.
-  legalName: null,
+  // Name used in the copyright line. Set to Maple Creek Advisors at Matt's direction on 2026-10-05.
+  // LAUNCH GATE: confirm once the Maple Creek Advisors entity is formed and Maple Creek Carts is registered as its trade name.
+  legalName: 'Maple Creek Advisors',
+
+  // Endorsement shown under the wordmark in the header and footer, and the parent organization in structured data.
+  // Key into `links` below. Set parent to null to remove both.
+  parent: 'advisors',
+  endorsement: 'A Maple Creek Advisors company',
 
   // Domain served by GitHub Pages. Written to dist/CNAME on every build.
   domain: 'maplecreekcarts.com',
