@@ -604,6 +604,7 @@ main:focus { outline: none; }
 
 /* Shows */
 .show-dates { font: 900 1.6rem/1.05 var(--font-display); color: var(--fairway); text-transform: uppercase; }
+.section-dark .show-dates { color: var(--flag); }
 
 /* Footer */
 .site-footer { background: var(--fairway-deep); color: var(--on-dark-muted); padding-top: 3rem; }

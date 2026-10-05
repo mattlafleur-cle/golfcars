@@ -102,7 +102,8 @@ export default {
   ],
 
   // Offering areas. LAUNCH GATE: set live to true only for an offering that exists today and can be bought or joined.
-  // While live is false, the offering is labeled with statusLabels.planned and no purchase or signup action appears.
+  // Status badges show only while showOfferingStatus is true. Matt chose on 2026-10-05 not to label any offering as
+  // planned, so badges are off. `live` is kept for the day badges or purchase links are wanted again.
   offerings: [
     { id: 'coaching', name: 'Leadership coaching', live: false, href: '/coaching/' },
     { id: 'training', name: 'Team training and workshops', live: false, href: '/what-we-teach/#formats' },
@@ -111,14 +112,15 @@ export default {
     // Delivered through Maple Creek Advisors. The outbound link works today; the label still follows `live`.
     { id: 'advisory', name: 'Advisory and fractional CFO', live: false, href: 'https://maplecreekadvisors.com/carts/', provider: 'advisors' },
   ],
+  showOfferingStatus: false,
   statusLabels: { live: 'Available now', planned: 'Planned' },
 
-  // LAUNCH GATE: industry shows. Set attending: true for each show Josh or Matt will attend. While no show is
+  // Industry shows. Matt confirmed on 2026-10-05 that Josh and Matt plan to attend both. Set attending: false to hide one. While no show is
   // marked attending, nothing about the shows appears on the site. Dates and venues verified 2026-10-05 on each
   // show's website; recheck them before publishing.
   shows: [
-    { name: 'Golf Business Conference', dates: 'January 25 to 27, 2027', place: 'Rosen Centre, Orlando, Florida', url: 'https://golfbusinessconference.com/', attending: false },
-    { name: 'PGA Show', dates: 'January 26 to 29, 2027', place: 'Orange County Convention Center, Orlando, Florida', url: 'https://www.pgashow.com/', attending: false },
+    { name: 'Golf Business Conference', dates: 'January 25 to 27, 2027', place: 'Rosen Centre, Orlando, Florida', url: 'https://golfbusinessconference.com/', attending: true },
+    { name: 'PGA Show', dates: 'January 26 to 29, 2027', place: 'Orange County Convention Center, Orlando, Florida', url: 'https://www.pgashow.com/', attending: true },
   ],
 
   // LAUNCH GATE: course or learning platform. Set to { name, url } when one exists. Nothing renders while null.

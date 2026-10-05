@@ -56,9 +56,13 @@ A free, browser-only dealer scorecard is at ${base}/scorecard/.
 
 ## Ways to work with us
 
-${site.offerings.map((o) => `- ${o.name} (${status(o)}): ${copy.offeringCopy[o.id].body}`).join('\n')}
+${site.offerings.map((o) => `- ${o.name}${site.showOfferingStatus ? ` (${status(o)})` : ''}: ${copy.offeringCopy[o.id].body}`).join('\n')}
 
-Offerings marked "${site.statusLabels.planned}" are not yet available to buy or join. No prices or event dates are published.
+No prices are published. Start with a conversation.
+
+## Shows
+
+${(site.shows || []).filter((s) => s.attending).map((s) => `- ${s.name}, ${s.dates}, ${s.place}`).join('\n') || '- None announced.'}
 
 ## Founders
 

@@ -20,7 +20,7 @@ export function markSvg(size = 32) {
 }
 
 export function statusBadge(site, offering) {
-  if (!offering) return '';
+  if (!offering || !site.showOfferingStatus) return '';
   const live = offering.live === true;
   const label = live ? site.statusLabels.live : site.statusLabels.planned;
   return `<span class="status ${live ? 'status-live' : 'status-planned'}">${esc(label)}</span>`;

@@ -34,7 +34,7 @@ The first time you run the browser test on a new computer, also run `npx playwri
 
 ## Common edits
 
-- **Flip an offering to live:** in `site.config.mjs`, set that offering's `live: true`. Its badge changes from "Planned" to "Available now" everywhere, including `llms.txt`.
+- **Offering status badges:** off by default (`showOfferingStatus: false`). Turn them on to show "Available now" or "Planned" per offering, driven by each offering's `live` setting.
 - **Change the booking link or emails:** edit `booking` and `contacts` in `site.config.mjs`. Set `booking.isTemporary: false` once a Maple Creek Carts calendar exists so the Contact page drops the note about Maple Creek Advisors.
 - **Add an event:** add `{ title, date: 'YYYY-MM-DD', format, location, url }` to `events`. An "Upcoming dates" list appears in the formats section of What we teach. Past dates drop off at the next build.
 - **Announce a show:** in `shows`, set `attending: true` for the PGA Show, the Golf Business Conference, or both. A "Meet us at the shows" section appears on Home and Contact with the dates, venue, and booking button. Recheck the dates first.

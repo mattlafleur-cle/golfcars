@@ -71,4 +71,10 @@ Matt's newer instructions: the type looked too much like other generated sites; 
 
 31. **Offerings still read "Planned."** The new copy is more confident, but no offering has been confirmed as available today, so the status rule from decision 6 stands. Flipping coaching or advisory to live is one setting each.
 
-32. **"Next level" stays banned.** It was in the brief's spirit of avoiding hype; the copy uses concrete language instead ("lead their market," "a team that runs the business when you are not in the building").
+32. **"Next level" stays banned.** Matt confirmed on 2026-10-05 that "lead their market" is fine. It was in the brief's spirit of avoiding hype; the copy uses concrete language instead ("lead their market," "a team that runs the business when you are not in the building").
+
+## 2026-10-05: Shows and offering labels
+
+33. **Meet us at the shows.** Matt confirmed that Josh and Matt plan to attend both the Golf Business Conference and the PGA Show. Both are marked `attending: true`, so a "Meet us at the shows" band, with dates, venues, links to each show's site, and the booking button, appears on Home and Contact. The site names the shows only as events the founders will attend; it does not suggest any sponsorship or affiliation.
+
+34. **No offering is labeled "Planned."** Matt's instruction supersedes decision 6 and decision 31. A new `showOfferingStatus` setting is false, so no status badge or "still being set" note appears anywhere, including `llms.txt`. Offerings are described plainly, and the note under them now says to start with a conversation for a format recommendation. Prices, dates, and a learning platform are still unpublished, so nothing on the site invites a purchase or enrollment that cannot happen.

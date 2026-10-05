@@ -15,8 +15,8 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 
 ## Launch gates (each defaults to the safe option)
 
-- [ ] **Which offerings exist today.** Currently all five are "Planned." Set `live: true` for any that can be bought or joined now. Likely candidates: leadership coaching (Josh coaches owners today) and advisory (delivered through Maple Creek Advisors). `offerings`.
-- [ ] **PGA Show and Golf Business Conference.** Will Josh or Matt attend either, or both? Set `attending: true` in `shows` to add a "Meet us at the shows" section to Home and Contact. This is the strongest single addition for that audience.
+- [x] **Offering labels.** Decided 2026-10-05: no offering is labeled planned (`showOfferingStatus: false`). Be ready to answer inquiries about courses, webinars, and peer groups, since the site now describes them without qualification.
+- [x] **PGA Show and Golf Business Conference.** Confirmed 2026-10-05; both shown. Recheck dates and venues on each show's site in December. If plans change, set that show's `attending: false`.
 - [ ] **Course or learning platform.** Currently none. `learningPlatform`.
 - [ ] **Event dates.** Currently none. `events`.
 - [ ] **Prices.** None are published, and the check blocks any dollar amount. `pricesApproved`.
@@ -35,7 +35,6 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 
 ## Worth confirming
 
-- [ ] **Advisory badge.** The advisory card links to the live Maple Creek Advisors golf cart page but reads "Planned." Flip it to live if that service is available today.
 - [ ] **BUILD link.** The site links to buildowners.com. Josh should confirm that is the destination he wants.
 - [ ] **The four disciplines, eight questions, and scorecard.** Read them as a dealer principal would. Edit anything that does not match how you teach. All of it is in `src/content.mjs`.
 - [ ] **After launch:** share a link in a message and check that the preview image appears, and submit the sitemap in Google Search Console once indexing is on.

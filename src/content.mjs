@@ -293,11 +293,11 @@ export default function content(site) {
     eventsHeading: 'Upcoming dates',
     platformLabel: (name) => `Go to ${name}`,
     offeringsNote:
-      'We are opening these one at a time. Formats, dates, and pricing will be published here when they are final. The way to start today is a conversation with Josh and Matt.',
+      'Not sure which fits? Start with a conversation, and we will recommend the right format for you and your team.',
     showsCopy: {
       eyebrow: 'Orlando, January 2027',
       heading: 'Meet us at the shows',
-      intro: 'Josh and Matt will be in Orlando. If you are there too, set a time to sit down with us during the week.',
+      intro: 'Josh and Matt will be in Orlando for both. If you are going too, set a time to sit down with us during the week.',
       linkLabel: (name) => `${name} website`,
     },
 
@@ -353,7 +353,7 @@ export default function content(site) {
             intro: 'Leaders across the whole industry, from the dealership showroom to the course cart barn.',
             items: audiences.map((a) => ({ title: a.title, body: a.short, href: `/who-we-serve/#${a.id}` })),
           },
-          { type: 'shows', id: 'shows' },
+          { type: 'shows', id: 'shows', tone: 'dark' },
           {
             type: 'offerings',
             id: 'work-with-us',
@@ -603,7 +603,7 @@ export default function content(site) {
             title: 'Let’s talk about your business',
             lead: 'The easiest way to start is to pick a time on the calendar. If you would rather write first, email either of us directly.',
           },
-          { type: 'shows', id: 'shows' },
+          { type: 'shows', id: 'shows', tone: 'dark' },
           {
             type: 'contact',
             id: 'reach-us',

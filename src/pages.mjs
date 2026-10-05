@@ -20,7 +20,7 @@ function sectionHead(block, level = 2) {
 
 function statusLine(site, copy, id, { withNote = false } = {}) {
   const offering = offeringById(site, id);
-  if (!offering) return '';
+  if (!offering || !site.showOfferingStatus) return '';
   return `<p class="status-line">${statusBadge(site, offering)}${offering.live || !withNote ? '' : ` <span>${esc(copy.plannedNote)}</span>`}</p>`;
 }
 
@@ -237,7 +237,7 @@ const renderers = {
       .map((o) => {
         const c = copy.offeringCopy[o.id];
         return `<li class="card offering">
-  <div class="offering-top">${statusBadge(site, o)}</div>
+  ${site.showOfferingStatus ? `<div class="offering-top">${statusBadge(site, o)}</div>` : ''}
   <h3>${esc(o.name)}</h3>
   <p>${esc(c.body)}</p>
   <p class="card-link">${linkTag(o.href, c.linkLabel, 'text-link')}</p>
