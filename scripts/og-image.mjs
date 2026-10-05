@@ -23,7 +23,7 @@ body { width: 1200px; height: 630px; overflow: hidden; position: relative; color
 .brand { display: flex; align-items: center; gap: 16px; font: 900 34px 'Big Shoulders Display'; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 40px; }
 .brand .mark rect { fill: #163a29; }
 h1 span { display: block; }
-h1 { font: 900 76px/0.92 'Big Shoulders Display'; text-transform: uppercase; letter-spacing: 0.01em; margin: 0 0 28px; }
+h1 { font: 900 80px/0.92 'Big Shoulders Display'; text-transform: uppercase; letter-spacing: 0.01em; margin: 0 0 28px; }
 p.tag { font-size: 24px; line-height: 1.4; color: #c6d3c9; margin: 0; }
 .domain { margin: 30px 0 0; font: 800 26px 'Big Shoulders Display'; letter-spacing: 0.16em; text-transform: uppercase; color: #f0b429; }
 .board { position: absolute; right: 70px; top: 110px; width: 380px; padding: 20px; border-radius: 12px; background: #163a29; box-shadow: 0 0 0 6px #12301f; }
@@ -35,7 +35,7 @@ p.tag { font-size: 24px; line-height: 1.4; color: #c6d3c9; margin: 0; }
 </style></head><body>
 <div class="text">
   <p class="brand">${markSvg(52)}<span>${esc(site.siteName)}</span></p>
-  <h1><span>Sell more.</span> <span>Service better.</span> <span>Run tighter.</span> <span>Lead stronger.</span></h1>
+  <h1><span>Grow the</span> <span>business you’ve</span> <span>already built.</span></h1>
   <p class="tag">Business education and leadership coaching for the golf cart industry</p>
   <p class="domain">${esc(site.domain)}</p>
 </div>

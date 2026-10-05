@@ -78,3 +78,7 @@ Matt's newer instructions: the type looked too much like other generated sites; 
 33. **Meet us at the shows.** Matt confirmed that Josh and Matt plan to attend both the Golf Business Conference and the PGA Show. Both are marked `attending: true`, so a "Meet us at the shows" band, with dates, venues, links to each show's site, and the booking button, appears on Home and Contact. The site names the shows only as events the founders will attend; it does not suggest any sponsorship or affiliation.
 
 34. **No offering is labeled "Planned."** Matt's instruction supersedes decision 6 and decision 31. A new `showOfferingStatus` setting is false, so no status badge or "still being set" note appears anywhere, including `llms.txt`. Offerings are described plainly, and the note under them now says to start with a conversation for a format recommendation. Prices, dates, and a learning platform are still unpublished, so nothing on the site invites a purchase or enrollment that cannot happen.
+
+## 2026-10-05: Hero rewrite
+
+35. **The hero speaks to growing an existing business.** At Matt's direction, the home page now opens with "Grow the business you've already built." The lead acknowledges what the visitor already has (customers, a team, a reputation in their market) and positions Maple Creek Carts as building on it. The second button reads "See where you stand" and goes to the scorecard. The link preview image uses the same headline. "Sell more. Service better. Run tighter. Lead stronger." is retired from the hero.

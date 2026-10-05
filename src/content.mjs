@@ -310,11 +310,11 @@ export default function content(site) {
         blocks: [
           {
             type: 'hero',
-            eyebrow: 'Business education for the golf cart industry',
-            title: 'Sell more. Service better. Run tighter. Lead stronger.',
+            eyebrow: 'For golf cart businesses ready for their next stage',
+            title: 'Grow the business you\u2019ve already built.',
             lead:
-              `${site.siteName} is business education and leadership coaching built for the golf cart industry. We work with dealer principals, owners, general managers, and leadership teams who intend to lead their market, on the four disciplines that decide it: sales, service, business operations, and leadership.`,
-            secondary: { label: 'Take the dealer scorecard', href: '/scorecard/' },
+              'You have the customers, the team, and a reputation in your market. Maple Creek Carts helps dealer principals, owners, and leadership teams build on that foundation, with business education and leadership coaching in the four disciplines that decide who leads the market: sales, service, business operations, and leadership.',
+            secondary: { label: 'See where you stand', href: '/scorecard/' },
             board: true,
           },
           {
