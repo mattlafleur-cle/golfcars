@@ -81,6 +81,29 @@ try {
       if (!(await page.locator('#site-nav').isVisible())) fail('desktop: navigation should be visible');
     }
 
+    // Scorecard: answers score in the browser and name the weakest discipline.
+    await page.goto(`${origin}/scorecard/`, { waitUntil: 'networkidle' });
+    if (await page.locator('[data-summary]').isVisible()) fail(`${vp.name}: scorecard summary visible before answering`);
+    const total = Number(await page.getAttribute('[data-scorecard]', 'data-total'));
+    for (let q = 1; q <= total; q++) {
+      const value = q > total - 4 ? '0' : '2'; // strong everywhere except the last discipline
+      await page.check(`input[name="q${q}"][value="${value}"]`);
+    }
+    if (!(await page.locator('[data-summary]').isVisible())) fail(`${vp.name}: scorecard summary did not appear after answering everything`);
+    const focus = await page.textContent('[data-focus]');
+    const lastArea = copy.disciplines[copy.disciplines.length - 1].name;
+    if (!focus.startsWith(`${lastArea} scored lowest at 0%`)) fail(`${vp.name}: scorecard focus reads "${focus}"`);
+    const band = await page.textContent('[data-band]');
+    if (band !== copy.scorecard.bands[copy.scorecard.bands.length - 1].label) fail(`${vp.name}: scorecard band reads "${band}" for a 75% score`);
+    await page.screenshot({ path: path.join(root, 'screenshots', `scorecard-done-${vp.name}.png`), fullPage: true });
+    await page.click('[data-reset]');
+    if (await page.locator('[data-summary]').isVisible()) fail(`${vp.name}: Start over did not reset the scorecard`);
+    if ((await page.locator('[data-scorecard] input:checked').count()) !== 0) fail(`${vp.name}: Start over left answers checked`);
+    // Keyboard: Tab reaches a choice, and Space selects it.
+    await page.focus('input[name="q1"][value="0"]');
+    await page.keyboard.press('Space');
+    if (!(await page.isChecked('input[name="q1"][value="0"]'))) fail(`${vp.name}: Space did not select a scorecard choice`);
+
     if (vp.name === 'phone') {
       await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
       if (await page.locator('#site-nav').isVisible()) fail('phone: navigation is visible before the menu is opened');

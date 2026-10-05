@@ -12,7 +12,7 @@ export default {
   domain: 'maplecreekcarts.com',
   canonicalUrl: 'https://maplecreekcarts.com',
 
-  tagline: 'Education, leadership coaching, and business training for the golf car and golf cart industry.',
+  tagline: 'Business education and leadership coaching for the golf cart industry: sales, service, operations, and leadership.',
 
   // Shown in every page footer. Required wording; do not shorten.
   footerDisclosure:
@@ -27,7 +27,7 @@ export default {
   analytics: null,
 
   // Link preview image in src/assets/. Regenerate with `npm run og-image` after changing siteName or tagline.
-  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: education, leadership coaching, and business training for the golf car industry' },
+  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: sales, service, operations, and leadership for golf cart businesses' },
 
   // The one primary action. Every page carries a "Schedule a conversation" button that goes to booking.url.
   // LAUNCH GATE: this is Matt's Maple Creek Advisors scheduling link, used until a Maple Creek Carts link exists.
@@ -105,13 +105,21 @@ export default {
   // While live is false, the offering is labeled with statusLabels.planned and no purchase or signup action appears.
   offerings: [
     { id: 'coaching', name: 'Leadership coaching', live: false, href: '/coaching/' },
-    { id: 'training', name: 'Business training', live: false, href: '/training/' },
-    { id: 'education', name: 'Education', live: false, href: '/training/#education' },
-    { id: 'peer', name: 'Peer learning and community', live: false, href: '/training/#peer-learning' },
+    { id: 'training', name: 'Team training and workshops', live: false, href: '/what-we-teach/#formats' },
+    { id: 'education', name: 'Courses, webinars, and resources', live: false, href: '/what-we-teach/#formats' },
+    { id: 'peer', name: 'Peer groups for leaders', live: false, href: '/what-we-teach/#peer-learning' },
     // Delivered through Maple Creek Advisors. The outbound link works today; the label still follows `live`.
     { id: 'advisory', name: 'Advisory and fractional CFO', live: false, href: 'https://maplecreekadvisors.com/carts/', provider: 'advisors' },
   ],
   statusLabels: { live: 'Available now', planned: 'Planned' },
+
+  // LAUNCH GATE: industry shows. Set attending: true for each show Josh or Matt will attend. While no show is
+  // marked attending, nothing about the shows appears on the site. Dates and venues verified 2026-10-05 on each
+  // show's website; recheck them before publishing.
+  shows: [
+    { name: 'Golf Business Conference', dates: 'January 25 to 27, 2027', place: 'Rosen Centre, Orlando, Florida', url: 'https://golfbusinessconference.com/', attending: false },
+    { name: 'PGA Show', dates: 'January 26 to 29, 2027', place: 'Orange County Convention Center, Orlando, Florida', url: 'https://www.pgashow.com/', attending: false },
+  ],
 
   // LAUNCH GATE: course or learning platform. Set to { name, url } when one exists. Nothing renders while null.
   learningPlatform: null,

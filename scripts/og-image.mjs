@@ -4,34 +4,42 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import site from '../site.config.mjs';
-import { esc, heroArt, markSvg } from '../src/layout.mjs';
+import content from '../src/content.mjs';
+import { esc, markSvg } from '../src/layout.mjs';
 import { launch, loadPlaywright } from './playwright.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const font = async (f) => (await readFile(path.join(root, 'src/assets/fonts', f))).toString('base64');
 
+const copy = content(site);
+const rows = copy.disciplines.map((d) => `<li><span class="num">${esc(d.number)}</span><span class="name">${esc(d.name)}</span></li>`).join('');
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
-@font-face { font-family: 'Bricolage Grotesque'; src: url(data:font/woff2;base64,${await font('bricolage-grotesque-latin.woff2')}) format('woff2'); font-weight: 500 700; }
-@font-face { font-family: 'Public Sans'; src: url(data:font/woff2;base64,${await font('public-sans-latin.woff2')}) format('woff2'); font-weight: 400 700; }
+@font-face { font-family: 'Big Shoulders Display'; src: url(data:font/woff2;base64,${await font('big-shoulders-display-latin.woff2')}) format('woff2'); font-weight: 500 900; }
+@font-face { font-family: 'Libre Franklin'; src: url(data:font/woff2;base64,${await font('libre-franklin-latin.woff2')}) format('woff2'); font-weight: 400 700; }
 html, body { margin: 0; }
-body { width: 1200px; height: 630px; overflow: hidden; position: relative; color: #f4efe4; font-family: 'Public Sans', sans-serif;
+body { width: 1200px; height: 630px; overflow: hidden; position: relative; color: #f4efe4; font-family: 'Libre Franklin', sans-serif;
   background: repeating-linear-gradient(100deg, #1e4a35 0 110px, #22523b 110px 220px); }
-.text { position: absolute; left: 80px; top: 80px; width: 640px; }
-.brand { display: flex; align-items: center; gap: 18px; font: 650 30px 'Bricolage Grotesque'; letter-spacing: -0.01em; margin: 0 0 56px; }
+.text { position: absolute; left: 76px; top: 64px; width: 590px; }
+.brand { display: flex; align-items: center; gap: 16px; font: 900 34px 'Big Shoulders Display'; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 40px; }
 .brand .mark rect { fill: #163a29; }
-h1 { font: 650 64px/1.04 'Bricolage Grotesque'; letter-spacing: -0.025em; margin: 0 0 28px; }
-p.tag { font-size: 27px; line-height: 1.4; color: #c6d3c9; margin: 0; }
-.domain { position: absolute; left: 80px; bottom: 64px; font: 600 22px 'Bricolage Grotesque'; letter-spacing: 0.12em; text-transform: uppercase; color: #f0b429; }
-.art { position: absolute; right: 64px; top: 75px; width: 400px; }
-.art svg { width: 100%; height: auto; display: block; border-radius: 18px; box-shadow: 0 0 0 2px rgba(198, 211, 201, 0.35), 0 24px 48px -24px rgba(0, 0, 0, 0.5); }
+h1 span { display: block; }
+h1 { font: 900 76px/0.92 'Big Shoulders Display'; text-transform: uppercase; letter-spacing: 0.01em; margin: 0 0 28px; }
+p.tag { font-size: 24px; line-height: 1.4; color: #c6d3c9; margin: 0; }
+.domain { margin: 30px 0 0; font: 800 26px 'Big Shoulders Display'; letter-spacing: 0.16em; text-transform: uppercase; color: #f0b429; }
+.board { position: absolute; right: 70px; top: 110px; width: 380px; padding: 20px; border-radius: 12px; background: #163a29; box-shadow: 0 0 0 6px #12301f; }
+.board p { margin: 0 0 14px; font: 800 18px 'Big Shoulders Display'; letter-spacing: 0.18em; text-transform: uppercase; }
+.board ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.board li { display: grid; grid-template-columns: 70px 1fr; border-radius: 5px; overflow: hidden; }
+.num { display: grid; place-items: center; background: #1e4a35; color: #f0b429; font: 900 34px 'Big Shoulders Display'; }
+.name { padding: 12px 16px; background: #fbf8f1; color: #1d2420; font: 900 38px/1 'Big Shoulders Display'; letter-spacing: 0.05em; text-transform: uppercase; }
 </style></head><body>
 <div class="text">
-  <p class="brand">${markSvg(56)}<span>${esc(site.siteName)}</span></p>
-  <h1>Stronger leaders and healthier numbers for golf car businesses.</h1>
-  <p class="tag">${esc(site.tagline.replace(/\.$/, ''))}</p>
+  <p class="brand">${markSvg(52)}<span>${esc(site.siteName)}</span></p>
+  <h1><span>Sell more.</span> <span>Service better.</span> <span>Run tighter.</span> <span>Lead stronger.</span></h1>
+  <p class="tag">Business education and leadership coaching for the golf cart industry</p>
+  <p class="domain">${esc(site.domain)}</p>
 </div>
-<p class="domain">${esc(site.domain)}</p>
-<div class="art">${heroArt()}</div>
+<div class="board"><p>The four disciplines</p><ol>${rows}</ol></div>
 </body></html>`;
 
 const playwright = loadPlaywright();

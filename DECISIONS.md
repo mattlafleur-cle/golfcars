@@ -50,3 +50,25 @@ Each choice made while building the site, and why. Newest entries go at the bott
 
 22. **`main` created from the development branch.** At Matt's direction, `main` was pushed from `claude/new-session-k9xrvi`. The first deploy from `main` passed every check and published to GitHub Pages.
 23. **DNS moved from Hostinger parking to GitHub Pages.** Matt replaced the parking records in Hostinger with the four GitHub Pages A records and a `www` CNAME to `mattlafleur-cle.github.io`. Verified the same day: both resolve correctly and the site loads at maplecreekcarts.com. Enforce HTTPS is the remaining step.
+
+## 2026-10-05: Repositioning for the industry's leaders
+
+Matt's newer instructions: the type looked too much like other generated sites; the site must be compelling to the leaders attending the PGA Show and the Golf Business Conference; Maple Creek Carts is an education platform and provider for an underserved industry; the major focus areas are sales, service, business operations, and leadership. These supersede the original brief where they conflict.
+
+24. **New type.** Big Shoulders Display, a condensed face in the spirit of scoreboards and dealer signage, now carries headlines, labels, buttons, and the wordmark, with large uppercase headlines. Libre Franklin, a classic American gothic, is the reading face. Both are self-hosted (SIL Open Font License). This supersedes the type part of decision 3; colors and motifs are unchanged.
+
+25. **The four disciplines are the spine of the site.** Sales, service, business operations, and leadership organize Home, the new What we teach page, and the scorecard. Each discipline has a promise, what we work on, and the signs that it needs attention. The earlier five offering areas are now "ways to work with us": leadership coaching, team training and workshops, courses and webinars and resources, peer groups, and advisory.
+
+26. **`/training/` became `/what-we-teach/`.** The site was not indexed and had no inbound links yet, so the rename costs nothing. Education formats, peer groups, and advisory are sections of that page.
+
+27. **Value before the ask.** Two additions give a visitor something useful on the spot: eight questions every dealer principal should be able to answer (Home), and a sixteen-statement dealer scorecard (`/scorecard/`) that scores sales, service, operations, and leadership and names the weakest area with a first step. The scorecard runs only in the browser, sends and stores nothing, needs no signup, and is not a form, so the no-forms rule still holds.
+
+28. **Golf facility owners and operators moved up.** The Golf Business Conference audience is facility owners, operators, management-company executives, resort and municipal operators, and next-generation successors. "Golf facility owners and operators" is now the second audience listed, framed around the cart fleet as a purchase, an operation, and a revenue line.
+
+29. **Underserved, stated as conviction.** The site says "We believe golf carts are one of the most underserved industries in business education." It is presented as the founders' view, not as a measured fact.
+
+30. **Shows appear only when confirmed.** Both shows are in `shows` with dates and venues verified on their websites today (Golf Business Conference, January 25 to 27, 2027, Rosen Centre; PGA Show, January 26 to 29, 2027, Orange County Convention Center; both Orlando). Nothing about either show appears until `attending` is set to true, so the site never implies attendance or affiliation that is not real.
+
+31. **Offerings still read "Planned."** The new copy is more confident, but no offering has been confirmed as available today, so the status rule from decision 6 stands. Flipping coaching or advisory to live is one setting each.
+
+32. **"Next level" stays banned.** It was in the brief's spirit of avoiding hype; the copy uses concrete language instead ("lead their market," "a team that runs the business when you are not in the building").

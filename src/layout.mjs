@@ -19,30 +19,6 @@ export function markSvg(size = 32) {
   return `<svg class="mark" width="${size}" height="${size}" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7" fill="#1e4a35"/><path d="M7 24 C 9 14, 17 20, 22 10" fill="none" stroke="#f4efe4" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 4.4"/><circle cx="7" cy="24" r="2.2" fill="#f4efe4"/><circle cx="23" cy="9" r="3.6" fill="#f0b429"/></svg>`;
 }
 
-// Hero illustration: an abstract yardage-book view of one hole. Decorative only.
-export function heroArt() {
-  return `<svg class="hero-art" viewBox="0 0 480 420" aria-hidden="true" focusable="false" role="presentation">
-  <defs>
-    <clipPath id="art-clip"><rect x="0" y="0" width="480" height="420" rx="18"/></clipPath>
-    <pattern id="mow" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(-28)">
-      <rect width="28" height="56" fill="#2a5f45"/><rect x="28" width="28" height="56" fill="#2f684c"/>
-    </pattern>
-  </defs>
-  <g clip-path="url(#art-clip)">
-    <rect width="480" height="420" fill="#1e4a35"/>
-    <path d="M70 430 C 40 330, 120 300, 150 240 C 185 170, 150 120, 230 80 C 300 45, 380 70, 410 120 C 440 170, 395 205, 340 220 C 280 236, 260 270, 250 320 C 238 380, 230 430, 230 430 Z" fill="url(#mow)"/>
-    <ellipse cx="352" cy="118" rx="58" ry="42" fill="#3b7a58"/>
-    <path d="M118 372 C 150 300, 205 270, 222 215 C 240 160, 280 125, 348 116" fill="none" stroke="#f4efe4" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 12" opacity="0.9"/>
-    <g fill="none" stroke="#c6d3c9" stroke-width="1.2" opacity="0.5">
-      <circle cx="118" cy="372" r="34"/><circle cx="118" cy="372" r="74"/><circle cx="118" cy="372" r="124"/><circle cx="118" cy="372" r="184"/><circle cx="118" cy="372" r="250"/>
-    </g>
-    <circle cx="118" cy="372" r="7" fill="#f4efe4"/>
-    <circle cx="350" cy="116" r="15" fill="none" stroke="#f0b429" stroke-width="2" opacity="0.6"/>
-    <circle cx="350" cy="116" r="7.5" fill="#f0b429"/>
-  </g>
-</svg>`;
-}
-
 export function statusBadge(site, offering) {
   if (!offering) return '';
   const live = offering.live === true;
@@ -132,8 +108,8 @@ export function pageShell({ site, copy, page, body, jsonLd, assets }) {
     `<meta property="og:image:alt" content="${esc(site.ogImage.alt)}">`,
     '<meta name="twitter:card" content="summary_large_image">',
     `<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">`,
-    `<link rel="preload" href="/assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>`,
-    `<link rel="preload" href="/assets/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin>`,
+    `<link rel="preload" href="/assets/fonts/big-shoulders-display-latin.woff2" as="font" type="font/woff2" crossorigin>`,
+    `<link rel="preload" href="/assets/fonts/libre-franklin-latin.woff2" as="font" type="font/woff2" crossorigin>`,
     `<link rel="stylesheet" href="/assets/site.css?v=${assets.css}">`,
     jsonLd ? `<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>` : '',
     `<script src="/assets/site.js?v=${assets.js}" defer></script>`,

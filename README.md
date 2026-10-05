@@ -25,7 +25,7 @@ The first time you run the browser test on a new computer, also run `npx playwri
 | `src/content.mjs` | All page copy: headings, paragraphs, lists, titles, and meta descriptions. |
 | `src/layout.mjs` | Page shell: head tags, header, menu, footer, brand mark, hero illustration. |
 | `src/pages.mjs` | Turns content blocks into HTML and builds the schema.org structured data. |
-| `src/assets/` | Stylesheet, menu script, self-hosted fonts, founder portraits, favicon, link preview image. |
+| `src/assets/` | Stylesheet, menu and scorecard script, self-hosted fonts (Big Shoulders Display and Libre Franklin), founder portraits, favicon, link preview image. |
 | `scripts/build.mjs` | Builds `dist/`, including `sitemap.xml`, `robots.txt`, `llms.txt`, and `CNAME`. |
 | `scripts/check.mjs` | The automated checks (below). |
 | `scripts/screenshots.mjs` | The Playwright browser test. |
@@ -36,7 +36,9 @@ The first time you run the browser test on a new computer, also run `npx playwri
 
 - **Flip an offering to live:** in `site.config.mjs`, set that offering's `live: true`. Its badge changes from "Planned" to "Available now" everywhere, including `llms.txt`.
 - **Change the booking link or emails:** edit `booking` and `contacts` in `site.config.mjs`. Set `booking.isTemporary: false` once a Maple Creek Carts calendar exists so the Contact page drops the note about Maple Creek Advisors.
-- **Add an event:** add `{ title, date: 'YYYY-MM-DD', format, location, url }` to `events`. An "Upcoming dates" list appears on the Training page. Past dates drop off at the next build.
+- **Add an event:** add `{ title, date: 'YYYY-MM-DD', format, location, url }` to `events`. An "Upcoming dates" list appears in the formats section of What we teach. Past dates drop off at the next build.
+- **Announce a show:** in `shows`, set `attending: true` for the PGA Show, the Golf Business Conference, or both. A "Meet us at the shows" section appears on Home and Contact with the dates, venue, and booking button. Recheck the dates first.
+- **Edit the four disciplines or the scorecard:** both live in `src/content.mjs` (`disciplines` and `scorecard`). The scorecard runs entirely in the visitor's browser; nothing is sent or stored.
 - **Add a learning platform:** set `learningPlatform: { name, url }`. A link appears in the Education section.
 - **Add golf car industry experience:** set a founder's `industryExperience` to a plain sentence or two. It appears in their bio and on About.
 - **Turn on search indexing:** set `allowIndexing: true`.
@@ -62,7 +64,7 @@ The first time you run the browser test on a new computer, also run `npx playwri
 - Structured data parses, uses only expected types with their required fields, resolves every internal reference, uses absolute HTTPS URLs, and contains no address, phone, or price until approved.
 - The sitemap lists exactly the built pages; `robots.txt` points to it; `CNAME` matches the domain; `llms.txt` exists.
 
-`npm run screenshots` renders every page, plus a missing page, at 1366 px and 390 px wide. It fails on console errors, failed or third-party requests, images that do not load, or horizontal scrolling. It also tests from the keyboard that the skip link moves focus to the content, and that the phone menu opens with Enter or Space, moves focus to the first link, reaches the booking button, and closes with Escape, returning focus to the menu button.
+`npm run screenshots` renders every page, plus a missing page, at 1366 px and 390 px wide. It fails on console errors, failed or third-party requests, images that do not load, or horizontal scrolling. It also completes the scorecard and checks the scoring, the weakest-area result, and Start over, and tests from the keyboard that the skip link moves focus to the content, and that the phone menu opens with Enter or Space, moves focus to the first link, reaches the booking button, and closes with Escape, returning focus to the menu button.
 
 ## Deploy
 

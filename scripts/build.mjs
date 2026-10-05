@@ -48,7 +48,13 @@ const llms = `# ${site.siteName}
 
 ${copy.footerBlurb} It serves owners, general managers, and leaders of golf car dealers and dealer groups; manufacturers, builders, and upfitters; service and repair shops; parts and accessory businesses; rental, fleet, and resort operators; and golf course and community fleet managers.
 
-## Offering areas
+## What we teach
+
+${copy.disciplines.map((d) => `- ${d.name}: ${d.promise}`).join('\n')}
+
+A free, browser-only dealer scorecard is at ${base}/scorecard/.
+
+## Ways to work with us
 
 ${site.offerings.map((o) => `- ${o.name} (${status(o)}): ${copy.offeringCopy[o.id].body}`).join('\n')}
 
