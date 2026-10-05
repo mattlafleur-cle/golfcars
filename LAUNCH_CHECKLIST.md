@@ -4,9 +4,11 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 
 ## Must do before the site is public
 
-- [ ] **Create `main` and set it as the default branch.** README, Deploy, step 1.
-- [ ] **Turn on GitHub Pages with "GitHub Actions" as the source.** README, step 2.
-- [ ] **Verify the domain, add DNS records, set the custom domain, and enforce HTTPS.** README, steps 3 to 5.
+- [x] **Create `main`.** Done 2026-10-05. Confirm it is the default branch under Settings > General.
+- [x] **Turn on GitHub Pages with "GitHub Actions" as the source.** Done; first deploy succeeded 2026-10-05.
+- [x] **DNS records and custom domain.** Done and verified 2026-10-05.
+- [ ] **Enforce HTTPS** in Settings > Pages once the certificate is ready.
+- [ ] **Verify the domain** in account Settings > Pages (recommended). README, step 3.
 - [ ] **Founders approve their bios.** Josh and Matt each read Home and About. `founders[].short` and `founders[].bio`.
 - [ ] **Founders approve their portraits on this site.** The files are the same ones used on maplecreekadvisors.com. `founders[].photo`.
 - [ ] **Read every page once for accuracy and voice.** Copy is in `src/content.mjs`.

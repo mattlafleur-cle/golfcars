@@ -42,6 +42,11 @@ Each choice made while building the site, and why. Newest entries go at the bott
 
 19. **Deploy gates.** The workflow runs `npm run check` and the browser test on every push and pull request. Only a push to `main` deploys, and only after both pass.
 
-20. **Not pushed to `main`.** Development happened on the branch `claude/new-session-k9xrvi`, as assigned. Creating `main` is the first setup step in the README; no deploy happens until it exists.
+20. **Development branch first.** Development happened on the branch `claude/new-session-k9xrvi`, as assigned.
 
 21. **Manufacturer names are blocked by the check.** The check fails if names such as the major cart brands appear anywhere in the built site, so the copy speaks only in generic industry terms.
+
+## 2026-10-05: Launch
+
+22. **`main` created from the development branch.** At Matt's direction, `main` was pushed from `claude/new-session-k9xrvi`. The first deploy from `main` passed every check and published to GitHub Pages.
+23. **DNS moved from Hostinger parking to GitHub Pages.** Matt replaced the parking records in Hostinger with the four GitHub Pages A records and a `www` CNAME to `mattlafleur-cle.github.io`. Verified the same day: both resolve correctly and the site loads at maplecreekcarts.com. Enforce HTTPS is the remaining step.
