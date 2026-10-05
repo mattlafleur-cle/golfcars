@@ -48,7 +48,7 @@ export default function content(site) {
         { title: 'Scheduling and workflow', body: 'Moving every cart from write-up to pickup on a predictable schedule.' },
         { title: 'Quality, comebacks, and warranty', body: 'Checks before delivery, and claims that actually get paid.' },
         { title: 'Parts availability', body: 'Stocking what the bay uses most so jobs do not stall.' },
-        { title: 'Building the technician bench', body: 'Recruiting, training, and keeping good technicians.' },
+        { title: 'Building the technician bench', body: 'Recruiting from trade schools and the community, then training and keeping good technicians.' },
       ],
       signs: [
         'The bay is full, but the department barely breaks even',
@@ -187,7 +187,7 @@ export default function content(site) {
         'Billed hours, paid hours, and technician productivity',
         'Labor rates and pricing for common jobs and battery work',
         'Scheduling, write-ups, and keeping carts moving through the bay',
-        'Hiring and training technicians before the busy months',
+        'Hiring technicians before the busy months, including partnerships with local trade schools',
         'Mobile service and route economics',
       ],
     },
@@ -591,23 +591,44 @@ export default function content(site) {
             type: 'statement',
             id: 'why',
             tone: 'dark',
-            eyebrow: 'Why a platform',
+            eyebrow: 'Our mission',
             heading: 'The golf cart business grew up. Its education should too.',
             paragraphs: [
               'Carts left the cart barn a long time ago. They are in neighborhoods, resorts, campgrounds, and on public roads as low-speed vehicles. Dealers now run new and used sales, service departments, parts counters, custom builds, rental fleets, and customer financing, usually with a team that learned it all on the job.',
-              'We believe golf carts are one of the most underserved industries in business education. Maple Creek Carts gives the industry one place to learn the business: a single curriculum built around how golf cart businesses actually run, and programs that turn it into results.',
+              'We believe golf carts are one of the most underserved industries in business education. Our mission is to raise the standard for how golf cart businesses are run, one business and one leader at a time.',
+            ],
+            columns: [
+              {
+                heading: 'For your business',
+                items: [
+                  'Stronger leaders and managers who can run their departments',
+                  'Department numbers you can read and act on',
+                  'A service bay and a sales floor that run the same way every day',
+                  'A business that grows without needing you in every decision',
+                ],
+              },
+              {
+                heading: 'For the industry',
+                items: [
+                  'A shared standard for what a well-run golf cart business looks like',
+                  'Free, practical field guides anyone in the industry can use',
+                  'A deeper bench of managers and technicians',
+                  'Leaders learning from each other instead of starting from scratch',
+                ],
+              },
             ],
           },
           {
             type: 'steps',
             id: 'how-it-works',
             eyebrow: 'How the platform works',
-            heading: 'Assess. Learn. Build.',
-            intro: 'Every business starts in a different place. The platform meets you there.',
+            heading: 'Assess. Learn. Build. Lead.',
+            intro: 'Every business starts in a different place. The platform meets you there, and takes you further than the next season.',
             items: [
-              { number: '1', title: 'Assess', body: 'Take the dealer scorecard to see where your business is strong and where it is leaking, across all four tracks.', href: '/scorecard/', linkLabel: 'Take the scorecard' },
+              { number: '1', title: 'Assess', body: 'Measure your business against the Maple Creek Carts Standard: sixteen practices of a well-run golf cart business, across all four tracks.', href: '/scorecard/', linkLabel: 'Take the scorecard' },
               { number: '2', title: 'Learn', body: 'Work through the curriculum: four tracks, twenty-four modules, and free field guides, with a learning path for every role.', href: '/curriculum/', linkLabel: 'See the curriculum' },
-              { number: '3', title: 'Build', body: 'Put it to work with leadership coaching, team training, courses, and peer groups that keep you moving.', href: '/programs/', linkLabel: 'See the programs' },
+              { number: '3', title: 'Build', body: 'Put it to work with leadership coaching, team training, and courses that turn the curriculum into habits.', href: '/programs/', linkLabel: 'See the programs' },
+              { number: '4', title: 'Lead', body: 'Develop your own managers, join a peer group, and help raise the next generation of leaders and technicians in the industry.', href: '/programs/#peer-groups', linkLabel: 'About peer groups' },
             ],
           },
           {
@@ -822,14 +843,14 @@ export default function content(site) {
         path: '/scorecard/',
         title: `Golf Cart Dealer Scorecard | ${site.siteName}`,
         description:
-          'A free five-minute scorecard for golf cart dealers and businesses. Rate sixteen practices across sales, service, operations, and leadership and see where to focus.',
+          'Rate your golf cart business against the Maple Creek Carts Standard: sixteen practices across sales, service, operations, and leadership. Free, five minutes.',
         blocks: [
           {
             type: 'hero',
-            eyebrow: 'The dealer scorecard',
+            eyebrow: 'The Maple Creek Carts Standard',
             title: 'Where is your business strong, and where is it leaking?',
             lead:
-              'Rate sixteen practices across the four tracks of the curriculum. It takes about five minutes, and your results point to the track and field guide to start with. Your answers stay in your browser: nothing is sent, saved, or tracked.',
+              'Sixteen practices make up the Maple Creek Carts Standard: four in each track of the curriculum. Rate your business against each one. It takes about five minutes, and your results point to the track and field guide to start with. Your answers stay in your browser: nothing is sent, saved, or tracked.',
           },
           { type: 'scorecard', id: 'scorecard' },
           { type: 'cta', heading: 'Bring your scorecard to a conversation', body: 'Walk us through your results and the track you most want to improve. We will tell you what we would work on first.' },

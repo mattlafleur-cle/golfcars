@@ -505,6 +505,12 @@ main:focus { outline: none; }
 @media (min-width: 900px) { .statement-body { grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 0.75rem; } }
 .section-dark .statement-body p { color: var(--on-dark-muted); }
 .statement-body p:last-child { color: var(--on-dark); }
+.statement-columns { display: grid; gap: 1rem; margin-top: 1.5rem; max-width: 64rem; }
+@media (min-width: 760px) { .statement-columns { grid-template-columns: 1fr 1fr; } }
+.statement-col { display: grid; gap: 0.9rem; align-content: start; padding: 1.35rem 1.4rem; border: 1px solid rgba(198, 211, 201, 0.28); border-radius: var(--radius); background: rgba(22, 58, 41, 0.45); }
+.statement-col h3 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--flag); }
+.statement-col .ticks li { color: var(--on-dark); }
+.statement-col .ticks li::before { box-shadow: 0 0 0 3px var(--fairway-deep), 0 0 0 4.5px var(--flag); }
 
 /* Four disciplines */
 .pillars { display: grid; gap: 1rem; list-style: none; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr)); }
@@ -611,7 +617,9 @@ main:focus { outline: none; }
 .section-dark .show-dates { color: var(--flag); }
 
 /* Platform: steps, tracks, modules, paths, guides */
-.steps { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); counter-reset: none; }
+.steps { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .step {
   position: relative;
   display: flex;

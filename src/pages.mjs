@@ -101,6 +101,7 @@ const renderers = {
   <p class="eyebrow">${esc(block.eyebrow)}</p>
   <h2 id="${esc(block.id)}-title">${esc(block.heading)}</h2>
   <div class="statement-body">${paras}</div>
+  ${block.columns ? `<div class="statement-columns">${block.columns.map((c) => `<div class="statement-col"><h3>${esc(c.heading)}</h3><ul class="ticks">${c.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('')}</div>` : ''}
 </div></section>`;
   },
 

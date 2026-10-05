@@ -106,3 +106,17 @@ Matt's instruction: the site should feel more like an educational and business-b
 43. **Changes made at Matt's direction.** The header wordmark carries "A Maple Creek Advisors company"; the footer repeats it with a link to maplecreekadvisors.com; the copyright line reads Maple Creek Advisors (`legalName`); and the Organization structured data lists Maple Creek Advisors as `parentOrganization`. All three are driven by `parent`, `endorsement`, and `legalName` in `site.config.mjs`.
 
 44. **The Maple Creek Advisors `/carts/` page is unchanged.** Matt chose not to redirect or repoint it to maplecreekcarts.com for now. Both sites therefore describe golf cart work; keep their claims consistent.
+
+## 2026-10-05: Ideas adapted from automotive education sites
+
+Matt shared the ASE Education Foundation and ASE Connects sites as parallel, not identical, models. Ideas adapted, without borrowing names, statistics, partner logos, or claims:
+
+45. **A stated standard.** The scorecard's sixteen practices are now presented as the Maple Creek Carts Standard, the platform's definition of a well-run golf cart business. It is described as our standard, not an industry or certification standard.
+
+46. **Value for the business and for the industry.** The mission band on Home pairs "For your business" with "For the industry," following ASE Connects' pairing of direct value with industry impact. The mission line: raise the standard for how golf cart businesses are run.
+
+47. **A pathway that ends in giving back.** "Assess. Learn. Build." became "Assess. Learn. Build. Lead.", with the fourth step about developing your own managers, peer groups, and raising the next generation of leaders and technicians, echoing ASE's career pathway that ends in mentoring.
+
+48. **The technician pipeline.** The service track's technician module and the service shop focus list now name recruiting from trade schools, reflecting both sites' focus on the technician shortage.
+
+49. **Not adopted, for now:** headline statistics, partner logo walls, success stories, and an industry pay and labor rate data exchange. The first three need real results and real partners. A data exchange could become a strong platform asset later, but it needs a form, a privacy page, and a data-handling plan.
