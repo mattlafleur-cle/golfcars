@@ -266,6 +266,7 @@ main:focus { outline: none; }
 .hero-grid { display: grid; gap: 2.5rem; align-items: center; }
 .hero-copy { display: grid; gap: 1.25rem; justify-items: start; }
 .hero-copy .actions { margin-top: 0.5rem; }
+.hero-note { margin-top: -0.6rem; }
 @media (min-width: 980px) {
   .hero-with-board .hero-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 3.5rem; }
 }

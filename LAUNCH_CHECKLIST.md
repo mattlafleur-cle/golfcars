@@ -21,7 +21,7 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 - [ ] **Event dates.** Currently none. `events`.
 - [ ] **Prices.** None are published, and the check blocks any dollar amount. `pricesApproved`.
 - [ ] **Email list or newsletter provider.** Currently none, and no signup form exists. Once a provider is connected and tested end to end, set `newsletter` and ask for the small template change to show a link to its hosted signup page.
-- [ ] **Booking link.** Currently Matt's Maple Creek Advisors calendar. Provide a Maple Creek Carts link if you want one, and set `booking.isTemporary: false`. `booking`.
+- [x] **Booking link.** The Maple Creek Carts intro conversation calendar (https://fantastical.app/mattlafleur/intro-conversation-with-maple-creek-carts), set 2026-10-23; `booking.isTemporary` is false. `booking`.
 - [ ] **Meeting length.** Not shown. Set `booking.length`, for example `'20-minute'`, if it should appear.
 - [ ] **Contact emails.** Currently josh@maplecreekcoaching.com and Matt's temporary address. Replace with Maple Creek Carts addresses when they exist. `contacts`.
 - [ ] **Response time.** Not shown. `responseTime`.

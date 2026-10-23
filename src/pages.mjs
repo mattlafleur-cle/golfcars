@@ -88,6 +88,7 @@ const renderers = {
         ${bookingButton(site, 'primary')}
         ${block.secondary ? `<a class="button button-secondary" href="${esc(block.secondary.href)}">${esc(block.secondary.label)}</a>` : ''}
       </div>
+      ${block.actionNote ? `<p class="small hero-note">${esc(block.actionNote)}</p>` : ''}
       ${jump}
     </div>
     ${block.board ? board(copy) : ''}
@@ -181,7 +182,7 @@ const renderers = {
     const cards = copy.guides
       .map((g) => {
         const d = trackOf(copy, g.track);
-        return `<li class="card guide-item"><p class="guide-kicker">${esc(d.number)} ${esc(d.name)} track</p><h3><a href="/guides/${esc(g.slug)}/">${esc(g.title)}</a></h3><p>${esc(g.summary)}</p><p class="card-link"><a class="text-link" href="/guides/${esc(g.slug)}/" aria-hidden="true" tabindex="-1">Read the guide</a></p></li>`;
+        return `<li class="card guide-item"><p class="guide-kicker">${esc(d.number)} ${esc(d.name)} track</p><h3><a href="/guides/${esc(g.slug)}/">${esc(g.title)}</a></h3><p>${esc(g.summary)}</p><p class="card-link"><a class="text-link" href="/guides/${esc(g.slug)}/" aria-hidden="true" tabindex="-1">Read: ${esc(g.title)}</a></p></li>`;
       })
       .join('');
     const more = block.full ? '' : `<p class="block-action"><a class="text-link" href="/guides/">All field guides</a></p>`;
@@ -236,7 +237,7 @@ const renderers = {
 </div></section>`;
   },
 
-  scorecard(block, { copy }) {
+  scorecard(block, { site, copy }) {
     const sc = copy.scorecard;
     let n = 0;
     const areas = sc.areas
@@ -273,7 +274,7 @@ const renderers = {
         <h3>Where to start</h3>
         <p data-focus></p>
         <ul class="sc-links"><li><a data-track-link href="/curriculum/">Explore the curriculum</a></li><li><a data-guide-link href="/guides/">Read the field guides</a></li></ul>
-        <div class="actions"><a class="button button-primary" href="/contact/">Talk through your results</a><button class="button button-secondary" type="button" data-reset>Start over</button></div>
+        <div class="actions"><a class="button button-primary" href="${esc(site.booking.url)}">Talk through your results</a><button class="button button-secondary" type="button" data-reset>Start over</button></div>
       </div>
       <noscript><p class="small">Scoring needs JavaScript. You can still use the statements as a checklist: count 2 points for Consistently, 1 for Sometimes, and 0 for Not yet. Each discipline has 8 points available.</p></noscript>
     </aside>
@@ -288,7 +289,7 @@ const renderers = {
     const cards = attending
       .map((s) => `<li class="card show-card"><h3>${esc(s.name)}</h3><p class="show-dates">${esc(s.dates)}</p><p>${esc(s.place)}</p><p class="card-link">${linkTag(s.url, sc.linkLabel(s.name), 'text-link')}</p></li>`)
       .join('');
-    return `${sectionOpen({ ...block, heading: sc.heading }, ' shows')}<div class="wrap">${sectionHead({ id: block.id, eyebrow: sc.eyebrow, heading: sc.heading, intro: sc.intro })}<ul class="grid grid-2">${cards}</ul><div class="actions block-action">${bookingButton(site, 'primary')}</div></div></section>`;
+    return `${sectionOpen({ ...block, heading: sc.heading }, ' shows')}<div class="wrap">${sectionHead({ id: block.id, eyebrow: sc.eyebrow, heading: sc.heading, intro: sc.intro })}<ul class="grid grid-2">${cards}</ul><div class="actions block-action">${bookingButton(site, 'primary', sc.buttonLabel)}</div></div></section>`;
   },
 
   audienceStrip(block) {

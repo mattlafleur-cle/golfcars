@@ -26,8 +26,8 @@ export function statusBadge(site, offering) {
   return `<span class="status ${live ? 'status-live' : 'status-planned'}">${esc(label)}</span>`;
 }
 
-export function bookingButton(site, variant = 'primary') {
-  return `<a class="button button-${variant}" href="${esc(site.booking.url)}" data-primary-action>${esc(site.booking.label)}</a>`;
+export function bookingButton(site, variant = 'primary', label = site.booking.label) {
+  return `<a class="button button-${variant}" href="${esc(site.booking.url)}" data-primary-action>${esc(label)}</a>`;
 }
 
 export function linkTag(href, label, cls = '') {

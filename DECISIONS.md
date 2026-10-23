@@ -22,7 +22,7 @@ Each choice made while building the site, and why. Newest entries go at the bott
 
 9. **No privacy page.** The site has no form, cookie, analytics, or third-party request. Add one if any of those are added.
 
-10. **Booking link is the Maple Creek Advisors calendar, with a note.** The Contact page says scheduling currently runs through the Maple Creek Advisors calendar, so visitors are not surprised by another name on the booking page. The note disappears when `booking.isTemporary` is set to false.
+10. **Booking link is the Maple Creek Carts intro conversation calendar.** It replaced the Maple Creek Advisors calendar on 2026-10-23, so `booking.isTemporary` is false and the Contact page no longer shows the note about the other calendar. Every booking button and the scorecard's "Talk through your results" button use `booking.url`. The shows section labels its button "Book a time at the show"; everywhere else keeps "Schedule a conversation". The Home hero adds "20 minutes. Free. No pitch." under the buttons.
 
 11. **Temporary emails shown on Contact only.** Josh and Matt each have an email card on the Contact page. The footer does not repeat the addresses, which keeps the temporary ones in a single place to change.
 
