@@ -146,7 +146,7 @@ const renderers = {
         <p class="list-heading">You will recognize the need when</p>
         <ul class="signs-list">${d.signs.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
       </div>
-      ${guide ? `<a class="guide-card" href="/guides/${esc(guide.slug)}/"><span class="guide-kicker">Free field guide</span><span class="guide-title">${esc(guide.title)}</span><span class="guide-more">Read the guide</span></a>` : ''}
+      ${guide ? `<a class="guide-card" href="/guides/${esc(guide.slug)}/"><span class="guide-kicker">Free field guide</span><span class="guide-title">${esc(guide.title)}</span><span class="guide-more">Read: ${esc(guide.title)}</span></a>` : ''}
     </div>
   </div>
 </section>`;
