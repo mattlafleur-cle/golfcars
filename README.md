@@ -1,6 +1,6 @@
-# Maple Creek Carts website
+# Build My Dealership website
 
-The public site for Maple Creek Carts at [maplecreekcarts.com](https://maplecreekcarts.com): education, leadership coaching, and business training for the golf car and golf cart industry, from Josh Muller and Matt LaFleur.
+The public site for Build My Dealership (formerly Maple Creek Carts) at [maplecreekcarts.com](https://maplecreekcarts.com): education, leadership coaching, and business training for the golf car and golf cart industry, from Josh Muller and Matt LaFleur.
 
 It is a plain static site. A small Node script with no dependencies turns one configuration file and one content file into HTML. There is no CMS, database, client-side framework, form, cookie, or tracking script.
 

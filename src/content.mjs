@@ -584,7 +584,7 @@ export default function content(site) {
             eyebrow: 'The business-building platform for the golf cart industry',
             title: 'Grow the business you’ve already built.',
             lead:
-              'You have the customers, the team, and a reputation in your market. Maple Creek Carts is where golf cart businesses learn to build on it: a curriculum in sales, service, business operations, and leadership, programs for owners and their teams, and practical tools you can use this week.',
+              'You have the customers, the team, and a reputation in your market. Build My Dealership is where golf cart businesses learn to build on it: a curriculum in sales, service, business operations, and leadership, programs for owners and their teams, and practical tools you can use this week.',
             secondary: { label: 'Take the 5-minute scorecard', href: '/scorecard/' },
             actionNote: '20 minutes. Free. No pitch.',
             board: true,
@@ -627,7 +627,7 @@ export default function content(site) {
             heading: 'Assess. Learn. Build. Lead.',
             intro: 'Every business starts in a different place. The platform meets you there, and takes you further than the next season.',
             items: [
-              { number: '1', title: 'Assess', body: 'Measure your business against the Maple Creek Carts Standard: sixteen practices of a well-run golf cart business, across all four tracks.', href: '/scorecard/', linkLabel: 'Take the scorecard' },
+              { number: '1', title: 'Assess', body: 'Measure your business against the Build My Dealership Standard: sixteen practices of a well-run golf cart business, across all four tracks.', href: '/scorecard/', linkLabel: 'Take the scorecard' },
               { number: '2', title: 'Learn', body: 'Work through the curriculum: four tracks, twenty-four modules, and free field guides, with a learning path for every role.', href: '/curriculum/', linkLabel: 'See the curriculum' },
               { number: '3', title: 'Build', body: 'Put it to work with leadership coaching, team training, and courses that turn the curriculum into habits.', href: '/programs/', linkLabel: 'See the programs' },
               { number: '4', title: 'Lead', body: 'Develop your own managers, join a peer group, and help raise the next generation of leaders and technicians in the industry.', href: '/programs/#peer-groups', linkLabel: 'See how peer groups work' },
@@ -700,7 +700,7 @@ export default function content(site) {
         path: '/curriculum/',
         title: `Golf Cart Business Curriculum: Sales, Service, Operations, Leadership | ${site.siteName}`,
         description:
-          'The Maple Creek Carts curriculum: four tracks and twenty-four modules in sales, service, business operations, and leadership, with learning paths for every role.',
+          'The Build My Dealership curriculum: four tracks and twenty-four modules in sales, service, business operations, and leadership, with learning paths for every role.',
         blocks: [
           {
             type: 'hero',
@@ -845,14 +845,14 @@ export default function content(site) {
         path: '/scorecard/',
         title: `Golf Cart Dealer Scorecard | ${site.siteName}`,
         description:
-          'Rate your golf cart business against the Maple Creek Carts Standard: sixteen practices across sales, service, operations, and leadership. Free, five minutes.',
+          'Rate your golf cart business against the Build My Dealership Standard: sixteen practices across sales, service, operations, and leadership. Free, five minutes.',
         blocks: [
           {
             type: 'hero',
-            eyebrow: 'The Maple Creek Carts Standard',
+            eyebrow: 'The Build My Dealership Standard',
             title: 'Where is your business strong, and where is it leaking?',
             lead:
-              'Sixteen practices make up the Maple Creek Carts Standard: four in each track of the curriculum. Rate your business against each one. It takes about five minutes, and your results point to the track and field guide to start with. Your answers stay in your browser: nothing is sent, saved, or tracked.',
+              'Sixteen practices make up the Build My Dealership Standard: four in each track of the curriculum. Rate your business against each one. It takes about five minutes, and your results point to the track and field guide to start with. Your answers stay in your browser: nothing is sent, saved, or tracked.',
           },
           { type: 'scorecard', id: 'scorecard' },
           { type: 'cta', heading: 'Bring your scorecard to a conversation', body: 'Walk us through your results and the track you most want to improve. We will tell you what we would work on first.' },
@@ -863,7 +863,7 @@ export default function content(site) {
         path: '/who-we-serve/',
         title: `Coaching and Training for Golf Cart Dealers, Courses, and Fleets | ${site.siteName}`,
         description:
-          'How Maple Creek Carts helps golf cart dealers, golf facility operators, builders and upfitters, service shops, accessory businesses, and rental fleets.',
+          'How Build My Dealership helps golf cart dealers, golf facility operators, builders and upfitters, service shops, accessory businesses, and rental fleets.',
         blocks: [
           {
             type: 'hero',
@@ -882,14 +882,14 @@ export default function content(site) {
         path: '/about/',
         title: `About Josh Muller and Matt LaFleur | ${site.siteName}`,
         description:
-          'Maple Creek Carts is an education and business-building platform from Josh Muller and Matt LaFleur, built for one of the most underserved industries in business.',
+          'Build My Dealership is an education and business-building platform from Josh Muller and Matt LaFleur, built for one of the most underserved industries in business.',
         blocks: [
           {
             type: 'hero',
             eyebrow: 'About',
             title: 'An education platform built by business builders',
             lead:
-              'Golf cart businesses carry a demanding mix: seasonal demand, floor plan inventory, a service bay, a parts counter, and often a family or founder at the center. General business advice rarely speaks to that mix. Maple Creek Carts was built to give this industry its own curriculum, programs, and tools.',
+              'Golf cart businesses carry a demanding mix: seasonal demand, floor plan inventory, a service bay, a parts counter, and often a family or founder at the center. General business advice rarely speaks to that mix. Build My Dealership was built to give this industry its own curriculum, programs, and tools.',
           },
           {
             type: 'founders',
@@ -977,7 +977,7 @@ export default function content(site) {
         path: '/404.html',
         notFound: true,
         title: `Page Not Found | ${site.siteName}`,
-        description: 'The page you were looking for is not here. Find the curriculum, programs, field guides, the dealer scorecard, and contact information for Maple Creek Carts.',
+        description: 'The page you were looking for is not here. Find the curriculum, programs, field guides, the dealer scorecard, and contact information for Build My Dealership.',
         blocks: [
           {
             type: 'hero',

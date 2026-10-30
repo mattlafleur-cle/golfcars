@@ -28,12 +28,15 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 - [ ] **Search indexing.** Currently off. Set `allowIndexing: true` when you approve launch.
 - [ ] **Golf car industry experience.** None is claimed. Add real experience in plain sentences, or leave it blank. `founders[].industryExperience`.
 - [ ] **Areas served.** No claim is made. For example `['United States']`, or a list of states. `location.areasServed`.
-- [ ] **Entity and trade name.** The copyright line and structured data now name Maple Creek Advisors as the company behind Maple Creek Carts. Confirm once the Maple Creek Advisors entity is formed, and register Maple Creek Carts as its trade name. `legalName`, `parent`.
+- [ ] **Entity and trade name.** The copyright line and structured data now name Maple Creek Advisors as the company behind Maple Creek Carts. Confirm once the Maple Creek Advisors entity is formed, and register Build My Dealership as its trade name. `legalName`, `parent`.
 - [ ] **Public profiles for structured data.** LinkedIn or similar, if each founder wants them linked. `profiles`.
 - [ ] **Street address and phone.** Not published, and kept out of structured data. `location.streetAddress`, `location.phone`.
 - [ ] **Analytics.** None. Approval needed before adding any, plus a privacy page. `analytics`.
 
 ## Worth confirming
+
+- [ ] **Domain move to buildmydealership.golf.** The site still runs at maplecreekcarts.com. Plan the move together: DNS at the new registrar, the GitHub Pages custom domain, `domain` and `canonicalUrl` in `site.config.mjs`, a new link preview image, and forwarding from maplecreekcarts.com so old links keep working.
+- [ ] **Who owns "Build."** BUILD is planned as a nonprofit and Josh is filing a "Build" trademark. Settle with counsel whether, and on what terms, the for-profit Build My Dealership may use the name.
 
 - [ ] **BUILD link.** The site links to buildowners.com. Josh should confirm that is the destination he wants.
 - [ ] **The curriculum.** The site now lists 24 named modules across four tracks, plus five learning paths. Confirm each is something you will teach, or edit it. `disciplines` and `paths` in `src/content.mjs`.

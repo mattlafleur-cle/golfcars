@@ -3,10 +3,10 @@
 // Items marked LAUNCH GATE also appear in LAUNCH_CHECKLIST.md.
 
 export default {
-  siteName: 'Maple Creek Carts',
+  siteName: 'Build My Dealership',
 
   // Name used in the copyright line. Set to Maple Creek Advisors at Matt's direction on 2026-10-05.
-  // LAUNCH GATE: confirm once the Maple Creek Advisors entity is formed and Maple Creek Carts is registered as its trade name.
+  // LAUNCH GATE: confirm once the Maple Creek Advisors entity is formed and Build My Dealership is registered as its trade name.
   legalName: 'Maple Creek Advisors',
 
   // Endorsement shown under the wordmark in the header and footer, and the parent organization in structured data.
@@ -22,7 +22,7 @@ export default {
 
   // Shown in every page footer. Required wording; do not shorten.
   footerDisclosure:
-    'Maple Creek Carts is not a registered CPA firm and does not provide tax preparation or attest services.',
+    'Build My Dealership is not a registered CPA firm and does not provide tax preparation or attest services.',
 
   // LAUNCH GATE: search indexing. While false, every page carries <meta name="robots" content="noindex">.
   // robots.txt still allows crawling so search engines can read the noindex. Set true after launch approval.
@@ -33,10 +33,10 @@ export default {
   analytics: null,
 
   // Link preview image in src/assets/. Regenerate with `npm run og-image` after changing siteName or tagline.
-  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: the education and business-building platform for the golf cart industry' },
+  ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Build My Dealership: the education and business-building platform for the golf cart industry' },
 
   // The one primary action. Every page carries a "Schedule a conversation" button that goes to booking.url.
-  // The Maple Creek Carts intro conversation calendar (Matt's Fantastical).
+  // The Build My Dealership intro conversation calendar (Matt's Fantastical).
   booking: {
     url: 'https://fantastical.app/mattlafleur/intro-conversation-with-maple-creek-carts',
     label: 'Schedule a conversation',
@@ -47,12 +47,12 @@ export default {
     length: null,
   },
 
-  // LAUNCH GATE: contact emails. These are temporary addresses until Maple Creek Carts addresses exist.
+  // LAUNCH GATE: contact emails. These are temporary addresses until Build My Dealership addresses exist.
   contacts: [
     { founder: 'josh', email: 'josh@maplecreekcoaching.com', temporary: true },
     { founder: 'matt', email: 'matt@forestcity.pro', temporary: true },
   ],
-  emailSubject: 'Maple Creek Carts conversation',
+  emailSubject: 'Build My Dealership conversation',
   // Leave null unless a response time is confirmed.
   responseTime: null,
 

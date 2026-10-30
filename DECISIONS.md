@@ -132,3 +132,11 @@ Matt shared the ASE Education Foundation and ASE Connects sites as parallel, not
 53. **Both themes are checked.** Every color is now a theme token, including translucent tones and the brand mark. `npm run check` tests all 25 contrast pairs in both themes (50 checks), and the browser test switches themes from the keyboard, follows the choice across pages, switches back, tests the `?theme=` link, and saves BUILD-theme screenshots.
 
 54. **Browser test runs on Ubuntu 24.04 (2026-10-30).** GitHub moved `ubuntu-latest` to Ubuntu 26.04, where Playwright 1.56.1 cannot install Chromium, so the deploy failed before the browser test. The check job is pinned to `ubuntu-24.04`. When upgrading Playwright to a version that supports 26.04, the pin can go back to `ubuntu-latest`.
+
+## 2026-10-30: New name, Build My Dealership
+
+55. **Maple Creek Carts is now Build My Dealership.** Josh and Matt chose the new name, and Matt bought buildmydealership.golf. Every place the old name appeared on the site now reads Build My Dealership: header and footer, page titles and descriptions, home, About, and Contact copy, the CPA firm disclosure line, the scorecard ("the Build My Dealership Standard"), the email subject, structured data, `llms.txt`, and the link preview image. The Maple Creek Advisors endorsement is unchanged. Earlier entries in this file keep the old name as history.
+
+56. **The domain has not moved yet.** At Matt's direction the site keeps running at maplecreekcarts.com until the domain setup is planned. The link preview image still prints maplecreekcarts.com for the same reason.
+
+57. **Open points raised with the rename:** the name says "Dealership" while the site serves six audiences (consider leading with dealers, facility operators second); "Build" ties to Josh's BUILD nonprofit and its planned trademark, so ownership and use should be settled with counsel; two phrases read awkwardly after the straight swap ("Build My Dealership is where golf cart businesses learn to build on it" and "the Build My Dealership Standard"). None of these were changed without Matt's direction.
