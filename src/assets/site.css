@@ -41,6 +41,18 @@
   --flag-ink: #7d5700;
   --on-dark: #f4efe4;
   --on-dark-muted: #c6d3c9;
+  /* Translucent tones and the brand mark, so a second theme can recolor everything. */
+  --shadow-soft: rgba(22, 58, 41, 0.45);
+  --shadow-strong: rgba(22, 58, 41, 0.6);
+  --dark-card: rgba(244, 239, 228, 0.05);
+  --dark-line: rgba(198, 211, 201, 0.28);
+  --dark-panel: rgba(22, 58, 41, 0.45);
+  --dark-track: rgba(244, 239, 228, 0.15);
+  --flag-glow: rgba(240, 180, 41, 0.25);
+  --mark-bg: #1e4a35;
+  --mark-line: #f4efe4;
+  --mark-dot: #f0b429;
+  --theme-stripes: none;
 
   --font-display: 'Big Shoulders Display', 'Arial Narrow', 'Roboto Condensed', sans-serif-condensed, Impact, sans-serif;
   --font-body: 'Libre Franklin', 'Franklin Gothic Book', 'Helvetica Neue', Arial, sans-serif;
@@ -55,6 +67,41 @@
   --space-section: clamp(2.75rem, 2rem + 3vw, 5rem);
   --radius: 6px;
   color-scheme: light;
+}
+
+/* BUILD theme: the BUILD brand guide colors (April 2026). Black replaces fairway green, gold stays the
+   main accent, crimson carries small text accents, orange is the hover color, and the logo's three
+   stripes (gold, orange, crimson) mark the header and the dark bands. Type and layout are unchanged.
+   Switched with the dot on the Home page leaderboard; the choice is kept in the visitor's browser. */
+:root[data-theme='build'] {
+  --fairway: #231f20;
+  --fairway-deep: #171314;
+  --fairway-soft: #3b3536;
+  --fairway-stripe: #2b2627;
+  --sand: #f7f3ee;
+  --sand-deep: #ede6dd;
+  --card: #fdfbf8;
+  --ink: #231f20;
+  --ink-muted: #524a4b;
+  --rule: #ddd2c6;
+  --flag: #f0b323;
+  --flag-deep: #d86018;
+  --flag-ink: #9d2235;
+  --on-dark: #f7f3ee;
+  --on-dark-muted: #d2c9c2;
+  --build-orange: #d86018;
+  --build-crimson: #9d2235;
+  --shadow-soft: rgba(35, 31, 32, 0.4);
+  --shadow-strong: rgba(35, 31, 32, 0.55);
+  --dark-card: rgba(247, 243, 238, 0.05);
+  --dark-line: rgba(210, 201, 194, 0.26);
+  --dark-panel: rgba(23, 19, 20, 0.5);
+  --dark-track: rgba(247, 243, 238, 0.15);
+  --flag-glow: rgba(240, 179, 35, 0.25);
+  --mark-bg: #231f20;
+  --mark-line: #f7f3ee;
+  --mark-dot: #f0b323;
+  --theme-stripes: linear-gradient(to bottom, #f0b323 0 2px, #d86018 2px 4px, #9d2235 4px 6px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -182,6 +229,22 @@ main:focus { outline: none; }
 }
 .wordmark:hover { color: var(--fairway); }
 .mark { flex: none; }
+.mark-bg { fill: var(--mark-bg); }
+.mark-line { stroke: var(--mark-line); }
+.mark-tee { fill: var(--mark-line); }
+.mark-dot { fill: var(--mark-dot); }
+.wordmark-light .mark-bg { fill: var(--fairway-soft); }
+/* BUILD stripes: under the header and across the top of dark bands and the footer (BUILD theme only). */
+.site-header::after, .section-dark::before, .site-footer::before { content: none; }
+:root[data-theme='build'] .site-header { border-bottom: 0; }
+:root[data-theme='build'] .site-header::after,
+:root[data-theme='build'] .section-dark::before,
+:root[data-theme='build'] .site-footer::before { content: ''; display: block; height: 6px; background: var(--theme-stripes); }
+:root[data-theme='build'] .site-header::after { position: absolute; left: 0; right: 0; bottom: -6px; }
+:root[data-theme='build'] .section-dark, :root[data-theme='build'] .site-footer { position: relative; }
+:root[data-theme='build'] .section-dark::before, :root[data-theme='build'] .site-footer::before { position: absolute; top: 0; left: 0; right: 0; }
+:root[data-theme='build'] :is(.pillar, .offering) { position: relative; overflow: hidden; border-top: 1px solid var(--rule); padding-top: calc(1.4rem + 6px); }
+:root[data-theme='build'] :is(.pillar, .offering)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--theme-stripes); }
 .wordmark-text { display: grid; gap: 0.15rem; line-height: 1; }
 .wordmark-sub { font: 600 0.72rem/1 var(--font-body); letter-spacing: 0.04em; text-transform: none; color: var(--ink-muted); }
 .footer-endorsement { color: var(--on-dark-muted); }
@@ -249,7 +312,7 @@ main:focus { outline: none; }
     padding: 0.75rem var(--gutter) 1.5rem;
     background: var(--sand);
     border-bottom: 1px solid var(--rule);
-    box-shadow: 0 14px 24px -18px rgba(22, 58, 41, 0.45);
+    box-shadow: 0 14px 24px -18px var(--shadow-soft);
     max-height: calc(100vh - 4.25rem);
     overflow-y: auto;
   }
@@ -326,7 +389,7 @@ main:focus { outline: none; }
 .section-dark .section-intro, .section-dark .card p, .section-dark .prose p { color: var(--on-dark-muted); }
 .section-dark a:not(.button) { color: var(--on-dark); }
 .section-dark a:not(.button):hover { color: var(--flag); }
-.section-dark .card { background: rgba(244, 239, 228, 0.05); border-color: rgba(198, 211, 201, 0.28); }
+.section-dark .card { background: var(--dark-card); border-color: var(--dark-line); }
 .section-dark .card h3 { color: var(--on-dark); }
 
 .section-head { display: grid; gap: 0.75rem; margin-bottom: 2rem; max-width: 46rem; }
@@ -457,7 +520,7 @@ main:focus { outline: none; }
   background-color: var(--fairway);
   background-image: repeating-linear-gradient(100deg, var(--fairway) 0 56px, var(--fairway-stripe) 56px 112px);
   color: var(--on-dark);
-  box-shadow: 0 0 0 6px var(--fairway-deep), 0 30px 50px -30px rgba(22, 58, 41, 0.6);
+  box-shadow: 0 0 0 6px var(--fairway-deep), 0 30px 50px -30px var(--shadow-strong);
 }
 .board-title {
   display: flex;
@@ -469,7 +532,14 @@ main:focus { outline: none; }
   text-transform: uppercase;
   color: var(--on-dark);
 }
-.board-flag { width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--flag); box-shadow: 0 0 0 4px rgba(240, 180, 41, 0.25); }
+.board-flag { display: block; width: 0.85rem; height: 0.85rem; border-radius: 50%; background: var(--flag); box-shadow: 0 0 0 4px var(--flag-glow); }
+:root[data-theme='build'] .board-flag { background: conic-gradient(var(--flag) 0 33%, var(--build-orange) 33% 66%, var(--build-crimson) 66% 100%); }
+/* Theme switch: a quiet control behind the leaderboard dot on Home. Hidden without JavaScript. */
+.theme-toggle { display: grid; place-items: center; width: 2rem; height: 2rem; margin: -0.55rem -0.55rem -0.55rem 0; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: pointer; }
+.theme-toggle:hover .board-flag { box-shadow: 0 0 0 6px var(--flag-glow); }
+.theme-toggle:focus-visible { outline: 3px solid var(--flag); outline-offset: 0; }
+.no-js .theme-toggle { display: none; }
+@media (prefers-reduced-motion: no-preference) { .board-flag { transition: box-shadow 0.2s ease; } }
 .board ol { display: grid; gap: 0.5rem; list-style: none; }
 .board a {
   display: grid;
@@ -507,7 +577,7 @@ main:focus { outline: none; }
 .statement-body p:last-child { color: var(--on-dark); }
 .statement-columns { display: grid; gap: 1rem; margin-top: 1.5rem; max-width: 64rem; }
 @media (min-width: 760px) { .statement-columns { grid-template-columns: 1fr 1fr; } }
-.statement-col { display: grid; gap: 0.9rem; align-content: start; padding: 1.35rem 1.4rem; border: 1px solid rgba(198, 211, 201, 0.28); border-radius: var(--radius); background: rgba(22, 58, 41, 0.45); }
+.statement-col { display: grid; gap: 0.9rem; align-content: start; padding: 1.35rem 1.4rem; border: 1px solid var(--dark-line); border-radius: var(--radius); background: var(--dark-panel); }
 .statement-col h3 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--flag); }
 .statement-col .ticks li { color: var(--on-dark); }
 .statement-col .ticks li::before { box-shadow: 0 0 0 3px var(--fairway-deep), 0 0 0 4.5px var(--flag); }
@@ -603,11 +673,11 @@ main:focus { outline: none; }
 .sc-bars li { display: grid; grid-template-columns: 1fr auto; gap: 0.35rem 1rem; }
 .sc-bar-label { font: 800 1.15rem var(--font-display); letter-spacing: 0.06em; text-transform: uppercase; }
 .sc-bar-value { grid-row: 1; grid-column: 2; font: 800 1.15rem var(--font-display); color: var(--flag); text-align: right; }
-.sc-bar { grid-column: 1 / -1; height: 0.6rem; border-radius: 999px; background: rgba(244, 239, 228, 0.15); overflow: hidden; }
+.sc-bar { grid-column: 1 / -1; height: 0.6rem; border-radius: 999px; background: var(--dark-track); overflow: hidden; }
 .sc-bar-fill { display: block; height: 100%; width: 0; background: var(--flag); border-radius: 999px; }
 @media (prefers-reduced-motion: no-preference) { .sc-bar-fill { transition: width 0.3s ease; } }
 .sc-band { font: 900 2rem/1 var(--font-display); text-transform: uppercase; color: var(--on-dark) !important; }
-.sc-summary { display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid rgba(198, 211, 201, 0.25); }
+.sc-summary { display: grid; gap: 0.75rem; padding-top: 1rem; border-top: 1px solid var(--dark-line); }
 .sc-summary[hidden] { display: none; }
 .sc-summary .button-secondary { color: var(--on-dark); border-color: var(--on-dark-muted); background: transparent; cursor: pointer; }
 .sc-summary .button-secondary:hover { background: var(--on-dark); color: var(--fairway-deep); }
@@ -722,7 +792,7 @@ main:focus { outline: none; }
 .footer-brand { display: grid; gap: 1rem; max-width: 30rem; }
 .wordmark-light, .wordmark-light:hover { color: var(--on-dark); }
 .footer-col ul { display: grid; gap: 0.5rem; }
-.footer-legal { display: grid; gap: 0.5rem; padding-block: 1.5rem 2rem; border-top: 1px solid rgba(198, 211, 201, 0.25); font-size: 0.92rem; }
+.footer-legal { display: grid; gap: 0.5rem; padding-block: 1.5rem 2rem; border-top: 1px solid var(--dark-line); font-size: 0.92rem; }
 .disclosure { color: var(--on-dark); }
 
 @media (prefers-reduced-motion: reduce) {

@@ -120,3 +120,13 @@ Matt shared the ASE Education Foundation and ASE Connects sites as parallel, not
 48. **The technician pipeline.** The service track's technician module and the service shop focus list now name recruiting from trade schools, reflecting both sites' focus on the technician shortage.
 
 49. **Not adopted, for now:** headline statistics, partner logo walls, success stories, and an industry pay and labor rate data exchange. The first three need real results and real partners. A data exchange could become a strong platform asset later, but it needs a form, a privacy page, and a data-handling plan.
+
+## 2026-10-30: BUILD color theme
+
+50. **A second color theme from the BUILD brand guide.** At Matt's request, the whole site can switch to the BUILD palette (BUILD Brand Guide, April 2026): black (#231F20) in place of fairway green, gold (#F0B323) as the main accent, crimson (#9D2235) for eyebrows, labels, and link hover, and orange (#D86018) as the primary button hover. The logo's three stripes (gold, orange, crimson) run under the header, across the top of dark bands and the footer, and along the top of track and program cards. Only color changes: type, layout, and copy are the same in both themes. Gotham, BUILD's typeface, is not used, because it is a licensed font and the request was for color.
+
+51. **Golf is the default; the switch is quiet.** The yellow dot in the Home page leaderboard is the switch. It is a real button (keyboard reachable, labeled "Use BUILD colors," with its pressed state announced), but it looks like the existing dot, so only people who know about it will use it. In the BUILD theme the dot shows the three BUILD colors.
+
+52. **The choice follows the visitor.** The theme is saved in the visitor's own browser (local storage) and applied by a small script in each page's head before the page draws, so there is no flash of the other theme. A link with `?theme=build` or `?theme=golf` sets it directly, which is handy for showing Josh's BUILD audience. Nothing is sent anywhere, so no privacy page is needed. If storage is blocked, the switch still works for the current page.
+
+53. **Both themes are checked.** Every color is now a theme token, including translucent tones and the brand mark. `npm run check` tests all 25 contrast pairs in both themes (50 checks), and the browser test switches themes from the keyboard, follows the choice across pages, switches back, tests the `?theme=` link, and saves BUILD-theme screenshots.

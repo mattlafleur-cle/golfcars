@@ -47,6 +47,7 @@ The first time you run the browser test on a new computer, also run `npx playwri
 - **Change wording:** edit `src/content.mjs`. Keep titles and descriptions unique; the check enforces it.
 - **Change the name or tagline:** edit `site.config.mjs`, then run `npm run og-image` and commit the new `src/assets/og-image.png`.
 - **Newsletter:** keep `newsletter: null` until a provider is connected and tested end to end. The check fails on any `<form>`, so a form cannot ship by accident. A link to the provider's hosted signup page is the planned next step and needs a small template change.
+- **Color themes:** golf is the default; the BUILD theme is the `:root[data-theme='build']` block in `src/assets/site.css`. Visitors switch with the dot on the Home page leaderboard, or with a `?theme=build` or `?theme=golf` link. Add or change colors in both token blocks; the contrast check covers both.
 - **Analytics:** none is included. Adding any requires approval, a code change, and a privacy page that describes the real data handling.
 
 ## Automated checks

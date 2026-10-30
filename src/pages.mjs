@@ -63,7 +63,7 @@ function board(copy) {
     .map((d) => `<li><a href="/curriculum/#${esc(d.id)}"><span class="board-num">${esc(d.number)}</span><span class="board-name">${esc(d.name)}</span></a></li>`)
     .join('');
   return `<nav class="board" aria-label="The four tracks of the curriculum">
-  <p class="board-title"><span>The curriculum: four tracks</span><span class="board-flag" aria-hidden="true"></span></p>
+  <p class="board-title"><span>The curriculum: four tracks</span><button class="theme-toggle" type="button" aria-pressed="false" aria-label="Use BUILD colors" title="Switch colors"><span class="board-flag" aria-hidden="true"></span></button></p>
   <ol>${rows}</ol>
   <p class="board-foot">${copy.disciplines.reduce((n, d) => n + d.modules.length, 0)} modules for dealers, builders, service shops, and golf facility fleets</p>
 </nav>`;

@@ -222,7 +222,16 @@ for (const file of repoFiles) {
 
 // 9. Contrast of key color pairs (WCAG 2.2 AA) ---------------------------------------------
 const css = await readFile(path.join(root, 'src/assets/site.css'), 'utf8');
-const tokens = Object.fromEntries([...css.split(':root {')[1].split('}')[0].matchAll(/--([\w-]+):\s*(#[0-9a-f]{6})/gi)].map((m) => [m[1], m[2]]));
+// Both color themes are checked: the default golf theme, and the BUILD theme layered over it.
+const tokenBlock = (opener) => {
+  const start = css.indexOf(opener);
+  if (start < 0) return {};
+  const body = css.slice(start + opener.length).split('\n}')[0];
+  return Object.fromEntries([...body.matchAll(/--([\w-]+):\s*(#[0-9a-f]{6})/gi)].map((m) => [m[1], m[2]]));
+};
+const golfTokens = tokenBlock(':root {');
+const themes = { golf: golfTokens, build: { ...golfTokens, ...tokenBlock(":root[data-theme='build'] {") } };
+if (Object.keys(themes.build).length === Object.keys(golfTokens).length && !css.includes(":root[data-theme='build']")) fail('contrast', 'BUILD theme token block is missing');
 const lum = (hex) => {
   const c = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4));
   return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
@@ -259,11 +268,13 @@ const pairs = [
   ['flag', 'fairway', 3, 'focus ring on dark backgrounds'],
   ['fairway', 'sand', 3, 'secondary button border'],
 ];
-for (const [fg, bg, min, what] of pairs) {
-  ran('contrast');
-  if (!tokens[fg] || !tokens[bg]) { fail('contrast', `missing color token --${fg} or --${bg}`); continue; }
-  const r = ratio(tokens[fg], tokens[bg]);
-  if (r < min) fail('contrast', `--${fg} on --${bg} (${what}) is ${r.toFixed(2)}:1, needs ${min}:1`);
+for (const [theme, tokens] of Object.entries(themes)) {
+  for (const [fg, bg, min, what] of pairs) {
+    ran('contrast');
+    if (!tokens[fg] || !tokens[bg]) { fail('contrast', `${theme} theme: missing color token --${fg} or --${bg}`); continue; }
+    const r = ratio(tokens[fg], tokens[bg]);
+    if (r < min) fail('contrast', `${theme} theme: --${fg} on --${bg} (${what}) is ${r.toFixed(2)}:1, needs ${min}:1`);
+  }
 }
 
 // 10. Structured data -----------------------------------------------------------------------

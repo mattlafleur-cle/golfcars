@@ -37,6 +37,30 @@
   });
 })();
 
+// Theme switch: the dot on the Home leaderboard flips between the default golf colors and the BUILD
+// colors. The head script applies a saved choice before the page paints; this keeps it in sync.
+(() => {
+  const root = document.documentElement;
+  const meta = document.querySelector('meta[name="theme-color"]');
+  const colors = { golf: '#1e4a35', build: '#231f20' };
+  const current = () => (root.getAttribute('data-theme') === 'build' ? 'build' : 'golf');
+  const sync = () => {
+    const theme = current();
+    if (meta) meta.setAttribute('content', colors[theme]);
+    for (const button of document.querySelectorAll('.theme-toggle')) button.setAttribute('aria-pressed', String(theme === 'build'));
+  };
+  for (const button of document.querySelectorAll('.theme-toggle')) {
+    button.addEventListener('click', () => {
+      const next = current() === 'build' ? 'golf' : 'build';
+      if (next === 'build') root.setAttribute('data-theme', 'build');
+      else root.removeAttribute('data-theme');
+      try { localStorage.setItem('mcc-theme', next); } catch { /* storage unavailable: the switch still works for this page */ }
+      sync();
+    });
+  }
+  sync();
+})();
+
 // Dealer scorecard: scores answers in the browser only. Nothing is sent, stored, or tracked.
 (() => {
   const card = document.querySelector('[data-scorecard]');

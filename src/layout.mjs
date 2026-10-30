@@ -16,7 +16,7 @@ export function absoluteUrl(site, path) {
 
 // Brand mark: a dashed line of play from tee to pin, echoing the Maple Creek Advisors mark.
 export function markSvg(size = 32) {
-  return `<svg class="mark" width="${size}" height="${size}" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7" fill="#1e4a35"/><path d="M7 24 C 9 14, 17 20, 22 10" fill="none" stroke="#f4efe4" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 4.4"/><circle cx="7" cy="24" r="2.2" fill="#f4efe4"/><circle cx="23" cy="9" r="3.6" fill="#f0b429"/></svg>`;
+  return `<svg class="mark" width="${size}" height="${size}" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect class="mark-bg" width="32" height="32" rx="7" fill="#1e4a35"/><path class="mark-line" d="M7 24 C 9 14, 17 20, 22 10" fill="none" stroke="#f4efe4" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 4.4"/><circle class="mark-tee" cx="7" cy="24" r="2.2" fill="#f4efe4"/><circle class="mark-dot" cx="23" cy="9" r="3.6" fill="#f0b429"/></svg>`;
 }
 
 export function statusBadge(site, offering) {
@@ -129,7 +129,7 @@ export function pageShell({ site, copy, page, body, jsonLd, assets }) {
   return `<!doctype html>
 <html lang="en" class="no-js">
 <head>
-<script>document.documentElement.className = 'js';</script>
+<script>(function(){var d=document.documentElement;d.className='js';var t=null;try{var q=new URLSearchParams(location.search).get('theme');if(q==='build'||q==='golf'){t=q;try{localStorage.setItem('mcc-theme',q)}catch(e){}}if(!t){t=localStorage.getItem('mcc-theme')}}catch(e){}if(t==='build'){d.setAttribute('data-theme','build')}})();</script>
 ${head}
 </head>
 <body>

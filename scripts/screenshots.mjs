@@ -81,6 +81,34 @@ try {
       if (!(await page.locator('#site-nav').isVisible())) fail('desktop: navigation should be visible');
     }
 
+    // Theme switch: the dot on Home flips to the BUILD colors, the choice follows the visitor across pages,
+    // and it switches back. A ?theme= link also sets it.
+    const themeOf = () => page.evaluate(() => document.documentElement.getAttribute('data-theme') || 'golf');
+    await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+    const switchButton = page.locator('.theme-toggle');
+    if ((await switchButton.count()) !== 1 || !(await switchButton.isVisible())) fail(`${vp.name}: theme switch missing on Home`);
+    await switchButton.focus();
+    await page.keyboard.press('Enter');
+    if ((await themeOf()) !== 'build') fail(`${vp.name}: Enter on the theme switch did not apply the BUILD theme`);
+    if ((await switchButton.getAttribute('aria-pressed')) !== 'true') fail(`${vp.name}: theme switch aria-pressed not updated`);
+    for (const p of ['/', '/curriculum/', '/scorecard/', '/guides/billed-hours-vs-paid-hours/']) {
+      await page.goto(origin + p, { waitUntil: 'networkidle' });
+      if ((await themeOf()) !== 'build') fail(`${vp.name} ${p}: BUILD theme did not carry over`);
+      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+      if (overflow > 0) fail(`${vp.name} ${p} (BUILD theme): horizontal scrolling of ${overflow}px`);
+      const slug = p === '/' ? 'home' : p.replace(/\//g, '-').replace(/^-|-$/g, '');
+      await page.screenshot({ path: path.join(root, 'screenshots', `build-${slug}-${vp.name}.png`), fullPage: true });
+    }
+    await page.goto(`${origin}/`, { waitUntil: 'networkidle' });
+    await page.click('.theme-toggle');
+    if ((await themeOf()) !== 'golf') fail(`${vp.name}: theme switch did not return to the golf theme`);
+    await page.goto(`${origin}/about/`, { waitUntil: 'networkidle' });
+    if ((await themeOf()) !== 'golf') fail(`${vp.name}: golf theme did not carry over after switching back`);
+    await page.goto(`${origin}/contact/?theme=build`, { waitUntil: 'networkidle' });
+    if ((await themeOf()) !== 'build') fail(`${vp.name}: ?theme=build did not apply the BUILD theme`);
+    await page.goto(`${origin}/contact/?theme=golf`, { waitUntil: 'networkidle' });
+    if ((await themeOf()) !== 'golf') fail(`${vp.name}: ?theme=golf did not restore the golf theme`);
+
     // Scorecard: answers score in the browser and name the weakest discipline.
     await page.goto(`${origin}/scorecard/`, { waitUntil: 'networkidle' });
     if (await page.locator('[data-summary]').isVisible()) fail(`${vp.name}: scorecard summary visible before answering`);
