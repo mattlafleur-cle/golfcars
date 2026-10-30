@@ -208,15 +208,14 @@ for (const file of repoFiles) {
   });
 }
 
-// 8. Excluded firm name: only the one temporary email address may contain it ---------------
-// The patterns are split so this file does not match itself.
-const allowedAddress = 'matt@' + 'forest' + 'city.pro';
+// 8. Excluded firm name: it may not appear anywhere in the site or the repository ----------
+// The pattern is split so this file does not match itself.
 const excluded = new RegExp('fores' + 't[\\s_.-]*ci' + 'ty', 'i');
 for (const file of repoFiles) {
   ran('excluded name');
-  const raw = (await readFile(file, 'utf8')).split(allowedAddress).join('');
+  const raw = await readFile(file, 'utf8');
   raw.split('\n').forEach((line, i) => {
-    if (excluded.test(line)) fail('excluded name', `${rel(file)}:${i + 1}: the excluded firm name appears outside the allowed temporary address`);
+    if (excluded.test(line)) fail('excluded name', `${rel(file)}:${i + 1}: the excluded firm name appears`);
   });
 }
 

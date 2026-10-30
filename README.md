@@ -62,7 +62,7 @@ The first time you run the browser test on a new computer, also run `npx playwri
 - Every page footer has the exact CPA firm disclosure.
 - No banned hype words, no manufacturer or brand names, no dollar amounts while prices are unapproved, no forms, no third-party scripts or stylesheets.
 - No em dashes or en dashes anywhere in the site or the repository, including these documents.
-- The name of Matt's CPA firm appears nowhere in the repository except inside the one temporary email address. The pattern lives in `scripts/check.mjs`.
+- The name of Matt's CPA firm appears nowhere in the repository. The pattern lives in `scripts/check.mjs`.
 - Key color pairs meet WCAG 2.2 AA contrast, computed from the color tokens in `site.css`.
 - Structured data parses, uses only expected types with their required fields, resolves every internal reference, uses absolute HTTPS URLs, and contains no address, phone, or price until approved.
 - The sitemap lists exactly the built pages; `robots.txt` points to it; `CNAME` matches the domain; `llms.txt` exists.

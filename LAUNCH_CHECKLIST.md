@@ -23,7 +23,7 @@ Everything that still needs a decision or input from Josh or Matt. Each item map
 - [ ] **Email list or newsletter provider.** Currently none, and no signup form exists. Once a provider is connected and tested end to end, set `newsletter` and ask for the small template change to show a link to its hosted signup page.
 - [x] **Booking link.** The Maple Creek Carts intro conversation calendar (https://fantastical.app/mattlafleur/intro-conversation-with-maple-creek-carts), set 2026-10-23; `booking.isTemporary` is false. `booking`.
 - [ ] **Meeting length.** Not shown. Set `booking.length`, for example `'20-minute'`, if it should appear.
-- [ ] **Contact emails.** Currently josh@maplecreekcoaching.com and Matt's temporary address. Replace with Maple Creek Carts addresses when they exist. `contacts`.
+- [x] **Contact emails.** josh@maplecreekadvisors.com and matt@maplecreekadvisors.com, set 2026-10-30. Switch to Build My Dealership addresses later if you create them. `contacts`.
 - [ ] **Response time.** Not shown. `responseTime`.
 - [ ] **Search indexing.** Currently off. Set `allowIndexing: true` when you approve launch.
 - [ ] **Golf car industry experience.** None is claimed. Add real experience in plain sentences, or leave it blank. `founders[].industryExperience`.

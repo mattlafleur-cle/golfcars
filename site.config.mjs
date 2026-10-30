@@ -47,10 +47,10 @@ export default {
     length: null,
   },
 
-  // LAUNCH GATE: contact emails. These are temporary addresses until Build My Dealership addresses exist.
+  // Contact emails. Updated 2026-10-30 at Matt's direction to the Maple Creek Advisors addresses.
   contacts: [
-    { founder: 'josh', email: 'josh@maplecreekcoaching.com', temporary: true },
-    { founder: 'matt', email: 'matt@forestcity.pro', temporary: true },
+    { founder: 'josh', email: 'josh@maplecreekadvisors.com', temporary: false },
+    { founder: 'matt', email: 'matt@maplecreekadvisors.com', temporary: false },
   ],
   emailSubject: 'Build My Dealership conversation',
   // Leave null unless a response time is confirmed.
