@@ -36,11 +36,11 @@ export default {
   ogImage: { src: 'og-image.png', width: 1200, height: 630, alt: 'Maple Creek Carts: the education and business-building platform for the golf cart industry' },
 
   // The one primary action. Every page carries a "Schedule a conversation" button that goes to booking.url.
-  // LAUNCH GATE: this is Matt's Maple Creek Advisors scheduling link, used until a Maple Creek Carts link exists.
+  // The Maple Creek Carts intro conversation calendar (Matt's Fantastical).
   booking: {
-    url: 'https://fantastical.app/mattlafleur/maple-creek-advisors',
+    url: 'https://fantastical.app/mattlafleur/intro-conversation-with-maple-creek-carts',
     label: 'Schedule a conversation',
-    isTemporary: true,
+    isTemporary: false,
     // Shown on the Contact page while isTemporary is true, so visitors are not surprised by another name.
     temporaryNote: 'Scheduling currently runs through the Maple Creek Advisors calendar, the advisory practice Josh and Matt share.',
     // Leave null until the meeting length is confirmed. Nothing is shown while null.

@@ -106,19 +106,19 @@ export default function content(site) {
   const offeringCopy = {
     coaching: {
       body: 'One-to-one coaching for dealer principals, owners, and general managers, and facilitated work with leadership teams.',
-      linkLabel: 'About leadership coaching',
+      linkLabel: 'See how leadership coaching works',
     },
     training: {
       body: 'On-site and virtual sessions for sales, service, and management teams, built from modules in any of the four tracks.',
-      linkLabel: 'About team training',
+      linkLabel: 'See how team training works',
     },
     education: {
       body: 'Structured courses, live webinars, field guides, and practical tools: worksheets, checklists, and templates you can use the same week.',
-      linkLabel: 'About courses and resources',
+      linkLabel: 'See courses and resources',
     },
     peer: {
       body: 'Small, confidential groups of golf cart business leaders who meet on a regular schedule to work through real decisions together.',
-      linkLabel: 'About peer groups',
+      linkLabel: 'See how peer groups work',
     },
     advisory: {
       body: `Hands-on financial leadership and fractional CFO work for golf cart businesses, delivered through ${advisors.name}.`,
@@ -569,6 +569,7 @@ export default function content(site) {
       heading: 'Meet us at the shows',
       intro: 'Josh and Matt will be in Orlando for both. If you are going too, set a time to sit down with us during the week.',
       linkLabel: (name) => `${name} website`,
+      buttonLabel: 'Book a time at the show',
     },
 
     pages: [
@@ -584,7 +585,8 @@ export default function content(site) {
             title: 'Grow the business you’ve already built.',
             lead:
               'You have the customers, the team, and a reputation in your market. Maple Creek Carts is where golf cart businesses learn to build on it: a curriculum in sales, service, business operations, and leadership, programs for owners and their teams, and practical tools you can use this week.',
-            secondary: { label: 'Explore the curriculum', href: '/curriculum/' },
+            secondary: { label: 'Take the 5-minute scorecard', href: '/scorecard/' },
+            actionNote: '20 minutes. Free. No pitch.',
             board: true,
           },
           {
@@ -628,7 +630,7 @@ export default function content(site) {
               { number: '1', title: 'Assess', body: 'Measure your business against the Maple Creek Carts Standard: sixteen practices of a well-run golf cart business, across all four tracks.', href: '/scorecard/', linkLabel: 'Take the scorecard' },
               { number: '2', title: 'Learn', body: 'Work through the curriculum: four tracks, twenty-four modules, and free field guides, with a learning path for every role.', href: '/curriculum/', linkLabel: 'See the curriculum' },
               { number: '3', title: 'Build', body: 'Put it to work with leadership coaching, team training, and courses that turn the curriculum into habits.', href: '/programs/', linkLabel: 'See the programs' },
-              { number: '4', title: 'Lead', body: 'Develop your own managers, join a peer group, and help raise the next generation of leaders and technicians in the industry.', href: '/programs/#peer-groups', linkLabel: 'About peer groups' },
+              { number: '4', title: 'Lead', body: 'Develop your own managers, join a peer group, and help raise the next generation of leaders and technicians in the industry.', href: '/programs/#peer-groups', linkLabel: 'See how peer groups work' },
             ],
           },
           {
